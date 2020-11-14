@@ -11,7 +11,7 @@ El objetivo principal es ajustar el formato para que pueda ser leido por persona
 Está organizado en la misma forma que se encuentra en http://www.reinadelcielo.org/el-evangelio-como-me-fue-revelado-poema-de-el-hombre-dios-mar%EE%A1%ADvaltorta/
 
 1. Introducción y vida oculta de Jesús _351 páginas en formato Word 18 pt, 182 páginas en formato Word 12 pt, 226 páginas en formato TeX (agrego páginas según avanzo en Word) ya con distribución terminada_
-2. Primer año de la vida pública de Jesús
+2. Primer año de la vida pública de Jesús _912 páginas en formato Word 18 pt, 597 páginas en formato Word 12 pt, 11 páginas en formato TeX (agrego páginas según avanzo en Word) ya con distribución terminada_
 3. Segundo año de la vida pública de Jesús
 4. Tercer año de la vida pública de Jesús
 5. Preparación a la Pasión de Jesús
@@ -26,7 +26,7 @@ El proyecto está organizado en:
 * **TeX** editado en LaTeX para un formato más sobrio, formal y en archivos PDF
 
 ## Comentarios
-
+* Comunicarse con _ info@reinadelcielo.org _ para enviar los archivos editados.
 * Con esta secuencia emulo el título de capítulo y su subtítulo agregando solo el primero a la tabla de contenidos, además de que quita el texto "Capítulo X" del contenido.
 *\chapter\*{_<Título>_ \\ \normalfont\normalsize\textit{ _<Subtítulos>_ }} \addcontentsline{toc}{chapter}{\normalfont\scshape{ _<Título>_ }}*
 * Ya incluyo portada.
