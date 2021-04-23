@@ -1,0 +1,252 @@
+\documentclass[12pt,spanish,lettersize]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[dvips]{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{mathrsfs}
+\usepackage{vmargin}
+\setmargins{2.5cm}
+{1.5cm}
+{16.5cm}
+{23.42cm}
+{10pt}
+{1cm}
+{0pt}
+{2cm}
+\title{\color{Maroon}Investigaciones de Instrumentaci\'on}
+\author{L.C.C. Efra\'in Serna Gracia}
+\date{\color{gray}\today}
+
+\begin{document}
+\maketitle
+%% \tableofcontents
+\section{Capacitores}
+Es un elemento de dos terminales, donde la relaci\'on entre voltaje y corriente se da por \\
+\begin{equation}
+v(t) = \frac{1}{C}\int\limits_{-\infty}^{t}i(\tau)d\tau
+\end{equation}
+\begin{equation}\label{corriente_cap}
+i(t) = C\frac{dv(t)}{dt}
+\end{equation}
+Donde $C$ es la capacidad medida en \emph{Faradios (F)}. Obs\'ervese que el voltaje depente de intervalos de tiempo previos, por lo que se dice que tiene "memoria".\\
+La ecuaci\'on  de voltaje es la siguiente:
+\begin{equation}
+v(t) = \frac{1}{C}\int\limits_{0}^{t}i(\tau)d\tau + v(0)
+\end{equation}
+Siendo $v(0)$ la condici\'on inicial. Y dada la relaci\'on existente entre $i(t)$ y $q(t)$, esta se puede expresar como
+\begin{equation}
+q(t)=Cv(t) \Rightarrow C = \frac{q(t)}{v(t)}
+\end{equation}
+Lo que significa que la capacidad (C) es la relaci\'on entre la carga ($q(t)$) y el voltaje($i(t)$) en sus terminales.
+\subsection{Potencia}
+Siendo la potencia en un dipolo $p(t) = v(t)i(t)$ y considerando la ecuaci\'on (\ref{corriente_cap}), tenemos que
+\begin{equation}\label{eq_pow}
+p(t)=v(t)i(t) \Rightarrow p(t)=v(t)C\frac{dv(t)}{dt}
+\end{equation}
+Con $C$ positiva, pero como $v(t)\frac{dv(t)}{dt}$ puede ser positivo o negativo, $p(t)$ es tambi\'en positiva o negativa.
+\subsection{Energ\'ia}
+La energ\'ia puede expresarse como
+\begin{equation}
+w(t) = \int\limits_{-\infty}^{t}p(\tau)d\tau
+\end{equation}
+Tomando en cuenta a (\ref{eq_pow}), tenemos que
+\begin{equation}\label{eq_pow2}
+w(t) = \int\limits_{-\infty}^{t}Cv(\tau)\frac{dv(\tau)}{d\tau}d\tau = \int\limits_{v(-\infty)}^{v(t)}Cv(t)dv = \frac{Cv^2(t)}{2}-\frac{Cv^(-\infty)}{2}
+\end{equation}
+Considerando que $v(-\infty)=\frac{1}{C}\int\limits_{-\infty}^{-\infty}i(t)dt = 0$
+\begin{equation}\label{eq_powf}
+w(t) = \frac{Cv^2(t)}{2} \geq 0
+\end{equation}
+Lo que quiere decir que la energ\'ia del capacitor siempre es positiva o nula, aunque la potencia \emph{instantanea} pueda ser negativa, por lo que se define al capacitor como un elemento \emph{pasivo}.\\
+Los valores manejados pueden ser pF o $\mu$F
+\section{Inductores}
+Es un componente de dos terminales, donde el voltaje y la corriente se relacionan por
+\begin{equation}\label{eq_induct0}
+i(t) = \frac{1}{L}\int\limits_{-\infty}^{t}v(\tau)d\tau \rightarrow v(t)= L\frac{di}{dt}
+\end{equation}
+Donde $L$ corresponde a la inductancia medida en \emph{Henrios} (H). Teniendo la condici\'on inicial $i(0)$, su ecuaci\'on para la corriente es:
+\begin{equation}\label{eq_Induct1}
+i(t) = \frac{1}{L}\int\limits_{t_{0}}^{t}v(\tau)d\tau + i(0)
+\end{equation}
+Mientras que los condensadores mantienen su carga en circuito abierto, los inductores (idealmente) mantienen sus cargas en cortocircuito, y en temperaturas cercanas al \emph{cero absoluto} mantienen la corriente por a\~nos.\\
+Por la ley de Faraday tenemos $v(t) = \frac{d\phi}{dt}$ donde $\phi$ es el flujo magn\'etico.\\
+La inductancia es la relaci\'on entre el flujo magn\'etico producido y la corriente que lo atraviesa:
+\begin{equation}\label{eq_inductancia}
+\phi(t) = L\cdot i(t) \rightarrow L=\frac{\phi(t)}{i(t)}
+\end{equation}
+\subsection{Potencia}
+Expresada como $p(t)=v(t)i(t)$, y considerando (\ref{eq_induct0}), tenemos la siguiente ecuaci\'on:
+\begin{equation}\label{eq_pot_induct}
+p(t) = i(t)L\frac{di(t)}{dt}; L \geq 0 ; (i)\frac{di(t)}{dt} \textup{ positivo o negativo}
+\end{equation}
+\subsection{Energ\'ia}
+La energ\'ia suministrada se expresa como
+\begin{equation}\label{eq_ener_ind1}
+w(t) = \int\limits_{-\infty}^{t}p(\tau)d\tau
+\end{equation}
+Aplicando (\ref{eq_pot_induct}) resulta en
+\begin{equation}\label{eq_ener_indt2}
+w(t) = \int\limits_{-\infty}^{t}L\cdot i(\tau)\frac{di(\tau)}{d\tau}d\tau = \int\limits_{i(-\infty)}^{i(t)}L\cdot i \cdot di
+\end{equation}
+Siendo que 
+\begin{equation}
+i(-\infty) = \int\limits_{-\infty}^{-\infty} = \frac{1}{L} \int\limits_{-\infty}^{-\infty}v(\tau)d\tau = 0
+\end{equation}
+Entonces tenemos
+\begin{equation}\label{eq_ener_indf}
+w(t) = \frac{L \cdot i^{2}(t)}{2}
+\end{equation}
+\section{Operacionales}
+Un amplificador operacional es b\'asicamente una fuente de voltaje controlada por voltaje de ganancia (idealmente) infinita. En un amplificador operacinal de \emph{entrada diferencial}, la salida depende de la diferencia de voltajes entre sus terminales positiva y negativa
+\\ \\ \\ \\ \\ \\ \\
+Como se puede observar en el circuito equivalente (derecha), la resistencia de entrada es infinita (no hay conexi\'on entre $V_{+}$ y $V_{-}$. La resistencia de salida es la fuente de energ\'ia dependiente. Como es ideal, entonces es cero.
+\subsection{Amplificador no inversor}
+Ecuaciones del Operacional con realimentaci\'on negativa:
+\\ \\ \\ \\ \\ \\
+\begin{math}
+\\
+I_{+} = I_{-} = 0\\
+e_{+} = e_{-}\\
+e_{+} = V_{in}\\
+e_{-} = -R_{1}I_{1} \Rightarrow I_{1} = -\frac{e_{-}}{R_{1}} = -\frac{V_{N}}{R_{1}}\\
+V_{out} = -I_{1}(R_{1} + R_{2}) = (1+\frac{R_{2}}{R_{1}})V_{in} \Rightarrow \textup{ Ganancia } A_{v} = 1 + \frac{R_{2}}{R_{1}}\\
+I_{out} = \frac{V_{out}}{R_{L}} = \frac{1}{R_{L}}(1+\frac{R_{2}}{R_{1}})V_{in}\\
+V_{0} = I_{out} - I_{1} = \frac{1}{R_{L}}(1+\frac{R_{2}}{R_{1}})V_{in} + \frac{V_{in}}{R_{1}}
+\end{math}\\
+\\
+Las caracter\'isticas m\'as notorias:
+\begin{itemize}
+\item La Ganancia del circuito es independiente de la ganancia del operacional.
+\item La Ganancia fijada por el cociente de dos resistencias.
+\item La Resistencia de entrada es infinita.
+\item La entrada y la salida son del mismo signo.
+\end{itemize}
+\subsection{Amplificador inversor}
+Ecuaciones del Operacional con realimentaci\'on negativa:
+\\ \\ \\ \\ \\ \\
+\begin{math}
+\\
+I_{+} = I_{-} = 0\\
+e_{+} = e_{-}\\
+e_{+} = 0\\
+e_{-} = V_{in}-R_{1}I_{1}=0 \Rightarrow I_{1} = -\frac{V_{in}}{R_{1}}\\
+v_{out}=-I_{1}R_{2}=-\frac{R_{2}}{R_{1}}V_{in}\Rightarrow\textup{ Ganancia } A_{v} = -\frac{R_{2}}{R_{1}}\\
+I_{out} = \frac{V_{out}}{R_{L}}=-\frac{1}{R_{L}}\cdot\frac{R_{2}}{R_{L}R_{1}}\cdot V_{in}\\
+I_{0} = I_{out}-I_{1} = \frac{1}{R_{1}}\cdot\frac{R_{2}}{R_{1}}V_{in}+\frac{V_{in}}{R_{1}}
+\end{math}\\
+Sus principales caracter\'isticas son:\\
+\begin{itemize}
+\item La Ganancia del circuito es independiente de la operacional.
+\item La Ganancia es fijada por el cociente de dos resistencias.
+\item La resistencia de entrada es $R_{1}$
+\item La entrada y la salida son de signo contrario (Inversor).
+\end{itemize}
+\subsection{Seguidor de tensi\'on, Separador o Buffer}
+Si en un amplificador no tensi\'on, hacemos 0 la resistencia $R_{2}$, queda en:\\
+\begin{math}
+\\
+Avf = (1+\frac{0}{R_{1}})=1\Rightarrow V_{0}=V_{s}\\
+R_{in}=\infty\\
+R_{out}=0\\
+\end{math}
+$V_{0} = V_{s}$ implica que el valor de salida de tensi\'on sigue a la tensi\'on de entrada.\\
+\\ \\ \\ \\ \\
+Debido a que la ganancia de lazo cerrado en el circuito $Avf = 1$ no depende de $R_{1}$ al eliminarla, resulta el siguiente circuito\\
+\\ \\ \\ \\ \\
+Esto permite acoplar una fuente de tensi\'on con resistencia \emph{relativamente elevada} a una carga con resistencia \emph{relativamente baja} sin que haya un efecto de carga.
+\subsection{Comparador}
+
+\subsection{Sumador}
+El amplificador sumador inversor es una aplicaci\'on del inversor de tensi\'on.\\
+\\ \\ \\ \\ \\ \\
+Aplicando la ley de corrientes de Kirchhoff al nodo "x", y considerando el cortocircuito virtual del AO ideal.
+\begin{equation}
+I_{F} = \sum\limits_{i=1}^{n}I_{i}
+\end{equation}
+Sustituyendo...
+\begin{equation}
+\frac{-V_{0}}{R_{F}}=\sum\limits_{i=1}^{n}\frac{V_{i}}{R_{i}}
+\end{equation}
+\begin{equation}
+\frac{V_{0}}{R_{F}}=-(\sum\limits_{i=1}^{n}\frac{V_{i}}{R_{i}})
+\end{equation}
+El voltaje de salida es igual a la suma, con signo opuesto, de los voltajes de entrada. Si todas las resistencias son iguales, la resistencia total es igual al valor de cualquera de las resistencias ($R_{F}=R$) y $V_{0}=-(\sum\limits_{i=1}^{n}V_{i})$
+\subsection{Integrador inversor}
+Un circuito integrador inversor proporciona una salida de tensi\'on $V_{0}$ es proporcional a la integral de la se\~nal de entrada $V_{s}$.\\
+Seg\'un la Teor\'ia de Circuitos, en el condensador se cumple que\\
+\\ \\ \\
+\begin{equation}
+I_{c} = C\frac{d(V_{1}-V_{2}}{dt}
+\end{equation}
+\\ \\ \\ \\ \\ \\
+considerando el \emph{cortocircuito virtual}, y aplicando la LCK al nodo que corresponde a la entrada inversora.
+\begin{math}
+I_{s}=I_{c}\\
+\frac{V_{1}}{R}=C\frac{d(-V_{0}}{dt}\\
+\end{math}\\
+Despejando...\\
+\begin{equation}
+d(-V_{0}) = \frac{1}{CR}V_{1}dt
+\end{equation}
+Integrando entre los instantes $t_{0}$ y $t$, y considerando la tensi\'on de salida en el instante inicial es $V_{0}(t_{0})$
+\begin{equation}
+V_{0}=-\frac{1}{RC}\int\limits_{0}^{-\infty}V_{t}dt+V_{0}(t_{0})
+\end{equation}
+Si hay una tensi\'on "$V_{i}=V$" cntinua en la entrada dle integrador, suponiendo que en el instante $t-{0}=0$, $V_{0}(t_{0})=0$
+\begin{equation}
+V_{0}=-\frac{1}{RC}\int\limits_{0}^{t}Vdt = -\frac{1}{RC}Vt
+\end{equation}
+Para evitar cualquier tensi\'on cntinua en la entrada del integrador que lo lleve a su nivel de saturaci\'on, se coloca una resistencia $R_{c}$ en paralelo con el condensador para limitar la ganancia en CC a $-R_{c}/R$. Este valor se suele tomar como 
+\begin{equation}
+R_{c}\geq\frac{10}{2\pi f_{s}C}.
+\end{equation}
+\subsection{Derivador}
+
+\section{Filtros}
+
+\subsection{Pasa-bajas}
+Tiene la propiedad de transmitir las componentes de se\~nales de excitaci\'on de baja frecuencia, incluyendo las se\~nales de corriente directa, mientras que las componentes de  altas frecuencias, incluyendo  las  infinitas, son bloqueadas. La magnitud de una funci\'on pasa-bajo tiene la siguiente apariencia ideal\\
+\\ \\ \\ \\ \\
+Y tienen la siguiente forma general de ecuaci\'on
+\begin{equation}
+T(s)=\frac{H}{D(s)}
+\end{equation}
+Donde $H$ es una constante y el polinomio $D(s)$ depende de los elementos de la red.
+\subsection{Pasa-altas}
+Tienen como propiedad bloquear las frecuencias que se encuentren por debajo  de la  frecuencia  de  corte ($\omega_{c}$) y  transmitir  todas  aquellas  componentes  de  frecuencia  que  sean mayores a esta frecuencia. La banda de rechazo se extiende desde $DC$ hasta $\omega_{c}$ y, la banda de paso, en teoría,  se extiende desde $\omega_{c}$ hasta una frecuencia infinita.\\
+Las  funciones  pasa-altas  con  caracter\'isticas  en  magnitud  com\'unmente  tienen  sus  ceros 
+localizados  en  el  origen  del  plano  de  la  frecuencia  compleja.  Por  lo  tanto,  las  funciones 
+racionales tienen la forma
+\begin{equation}
+T(s)=\frac{H\cdot s^{n}}{D(s)}
+\end{equation}
+Donde $H$ es una constante y $n$ es el grado del denominador polinomial $D(s)$
+\subsection{Pasa-bandas}
+El filtro pasa-bandas se caracterisa por la transmisi\'on de un rango de frecuencias y el rechazo de otras dos, las cuales son un rango menor y uno mayor ($\omega_{2}$) que las de paso ($\omega_{1}$). A este rango transmitido se le llama \emph{ancho de banda} o $BW$ y es la diferencia entre las frecuencias que definen los l\'imites de la banda de paso
+\begin{equation}
+BW= \omega_{1}- \omega_{2}
+\end{equation}
+La frecuencia central se define como la media geom\'etrica de las frecuencias l\'imite
+\begin{equation}
+\omega_{0} = \sqrt{\omega_{1}\omega_{2}}
+\end{equation}
+La magnitud del filtro pasa-bandas a las frecuencias cero e infinita debe ser cero. Todos los filtros pasa-bandas cn caracter\'isticas en magnitud tienen la mitad de sus ceros en el origen y la otra mitad en el infinito.
+\begin{equation}
+T(s)=\frac{H\cdot s^{\frac{1}{2}}}{D(s)}
+\end{equation}
+Donde H es constante, $n$ el grado del polinomio denominador $D(s)$ y siempre n\'umero par.
+\section{Decibelio}
+Es una unidad relativa de medida que describe la ganancia o atenuaci\'on de potencia. Se utiliza para c\'alculos en sistemas de audio, de microondas, de enlaces a sat\'elites y en general en sistemas de comunicaci\'on.\\
+La relaci\'on se calcula con el logaritmo de la relaci\'on de la potencia medida con respecto a la potencia de referencia y multiplicado por 10
+\begin{equation}\label{Db1}
+dB = 10\cdot log(\frac{P_{2}}{P_{1}})
+\end{equation}
+A partir de dos tensiones, la ecuaci\'on (\ref{Db1}) se puede escribir como
+\begin{equation}
+dB=10\cdot log(\frac{\frac{V_{2}^{2}}{R_{2}}}{\frac{V_{2}^{2}}{R_{1}}})
+\end{equation}
+Si $R_{1}=R_{2}$, tenemos...
+\begin{equation}
+dB=10\cdot log(\frac{V_{2}^{2}}{V_{2}^{2}})
+\end{equation}
+\end{document}

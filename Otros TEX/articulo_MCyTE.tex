@@ -1,0 +1,127 @@
+\documentclass[12pt]{article} % use larger type; default would be 10pt
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+\usepackage{geometry} % to change the page dimensions
+\geometry{letterpaper,
+inner=2.5cm,
+outer=2cm,
+top=2.5cm,
+bottom=2.5cm}
+%\geometry{landscape} % set up the page for landscape
+
+\usepackage{multicol}
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage[obeyspaces]{url}
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+\usepackage[spanish]{babel}
+\usepackage{graphicx} % support the \includegraphics command and options
+\usepackage{fancyvrb,xcolor}
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\rhead{\leftmark}\chead{E. S. G.}\lhead{ADSAEC}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+\renewcommand{\headrulewidth}{1pt}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+\definecolor{darkgreen}{rgb}{0.0, 0.5, 0.0}
+
+\title{Análisis para el Desarrollo de un Sistema de Apoyo Educativo por Competición}
+\author{M.C. Y T. E. Efraín Serna Gracia}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Introducción}
+Uno de los problemas que involucra a los estudiantes de la Universidad Hispana, campus Ciudad de Puebla, consiste en la dificultad que los mismos tienen para expresar sus ideas en escritos académicos y en exposiciones frente a grupos, por ello se planteó el diseño de un sistema que coadyuve al desarrollo de las habilidades en redacción, además de permitirles autoevaluarse para mejorar su aprendizaje, además de facilitar esta labor a los catedráticos.\\
+Para alcanzar estos objetivos, es necesario realizar un análisis en diferentes aspectos, ya que el sistema debe tener una estructura bien definida para evitar que resulte aburrido, tedioso y se convierta en una carga para los alumnos, de modo que, al utilizarla con frecuencia los participantes vayan mejorando estas habilidades, útiles a lo largo de sus vidas académica y laboral. Así pues, la propuesta de software incluye elementos similares a los juegos para incentivar la participación por medio de la competencia entre los usuarios, permitiendo una mutua evaluación (coevaluación).\\
+Al ser un sistema de tipo educativo, se vuelve necesaria la realización de otras formas para evaluar: Una calificación realizada por el sistema con retroalimentación al momento (Evaluación) y otra por parte de los profesores al validar la información publicada por los estudiantes, con lo que otorgan puntos a favor o en contra (Heteroevaluación). Por otra parte, y tomando como base las aportaciones evaluadas positivamente, se podrían construir mapas mentales que muestren cómo se relaciona la información consultada.
+
+\section{Enfoque metodológico}
+El enfoque metodológico empleado fue de tipo mixto debido a la naturaleza del proyecto, ya que incluye elementos de percepción subjetiva (gustos, preferencias de uso) y otros de tipo objetivo (puntajes, escalas, estadísticas, mediciones).\\
+Para su desarrollo se eligió a la UHP, esto debido a la cantidad de estudiantes que posee, las facilidades proporcionadas por los directivos para su realización y la diversidad de áreas académicas cubiertas por los docentes y estudiantes.\\
+De esta forma se consultó con el rector de la UHP sobre el desarrollo de la propuesta para trabajar, posteriormente se elaboró un instrumento que facilitara la recuperación de información inicial de manera similar a como una entrevista lo hace.\\
+Después se eligió el método para aplicar el instrumento considerando la distribución de horarios de los estudiantes y las modalidades de estudio.\\
+Una vez recuperada la información, el proceso para su tratamiento incluyó un trabajo de clasificación para proceder a un análisis estadístico menor a fin de determinar las características, herramientas y opciones de configuración que sistema debería incluir.\\
+Así pues, luego de realizarse este procesamiento, se continuó con las etapas siguientes para el desarrollo de un sistema acorde a los estándares y metodologías de desarrollo existentes.\\
+Finalmente, se realizaron pruebas con estudiantes de diferentes carreras en momentos particulares a fin de recuperar información sobre su desempeño durante el uso del sistema y la aceptación que éste tendría.
+
+\section{Modelos pedagógicos}
+Una forma de determinar qué son los modelos pedagógicos es analizar cada uno de los términos utilizados para referirse a ellos globalmente, así pues, es posible analizar las palabras Modelo y Pedagogía de manera independiente.\\
+Por lo que respecta al primer término la Real Academia Española \cite{RAE2012} lo define como un arquetipo o punto de referencia que por su perfección se debe seguir e imitar, también lo define como un esquema teórico elaborado para facilitar la compresión de un sistema o realidad compleja. Kuhn (1969) introduce el término paradigma como un conjunto de creencias, valores y técnicas compartidos por una comunidad, útiles como ejemplos y que pueden servir a manera de remplazo para reglas explícitas que definan las bases que conducen a la solución de problemas similares dentro de la ciencia normal. Gloria Pérez (2006), quien también cita a Kuhn, explica que un modelo, en educación, es un conjunto de creencias, valores, teorías, que hacen referencia a realizaciones validadas y consideradas ejemplares, por lo que asumen un carácter normativo general compartido por una comunidad científica. Es interesante el hecho que ella asocia modelo con educación.\\
+Así pues, se entenderá como modelo a un conjunto de creencias, valores, teorías y técnicas útiles para la comprensión de los sistemas y realidades que una comunidad comparten, principalmente científica o académica, de forma que constituyen puntos de referencia para la conducción a soluciones de problemas similares al interior de la comunidad y de ésta hacia su entorno.\\
+Referente a Pedagogía, se tienen las siguientes definiciones y conceptualizaciones:
+“Ciencia ocupada de la educación y la enseñanza, por lo general manejada por doctrinas o ejemplos.” \cite{RAE2012}.\\
+“Ciencia multidisciplinaria que se encarga de estudiar y analizar los fenómenos educativos y brindar soluciones de forma sistemática e intencional, con la finalidad de apoyar a la educación en todos sus aspectos para el perfeccionamiento del ser humano. Es una actividad humana sistemática, que orienta las acciones educativas y de formación, en donde se plantean los principios, métodos, prácticas, maneras de pensar y modelos, los cuales son sus elementos constitutivos. Es una aplicación constante en los procesos de enseñanza-aprendizaje.” (Pedagogía.mx, 2012).\\
+“La pedagogía o teoría de la educación es una disciplina que puede ser física o práctica. La pedagogía física se refiere a los cuidados y la práctica o moral al uso de la libertad. Ésta comprende la formación escolástico-mecánica, la formación pragmática y la formación moral” (Paukner Nogués, 2007).\\
+“La pedagogía es un conjunto de saberes que buscan tener impacto en el proceso educativo, en cualquiera de las dimensiones que este tenga, así como en la comprensión y organización de la cultura y la construcción del sujeto.” (Hevia Bernal, Sin año)
+“Pedagogía, en Meirieu, es una posición política sin ideología, es una posición filosófica sin escuela, una perspectiva antropológica por la cultura; también es sociológica, dado el interés por el vínculo social; una mirada científica por el aprendizaje que supone la enseñanza de los saberes. La pedagogía es una forma de sublevarse contra las contradicciones educativas y su virtud es la indignación.” (Zambrano Leal, 2006).\\
+Por lo recién expuesto, se puede decir respecto de la Pedagogía que es una disciplina (al ser una actividad sistemática) orientada hacia la enseñanza de los saberes, los cuidados (de la persona y su entorno) y uso de las libertades, en tanto que comprende la formación en diferentes aspectos a fin de tener impacto en el proceso educativo para el entendimiento y organización de la cultura.\\
+La Universidad La Gran Colombia, en su Modelo Pedagógico Institucional (2009) dice que:
+“El modelo pedagógico se constituye a partir de la formación integral y del ideal de sujeto transformador de realidades que la sociedad concibe según sus necesidades; refleja una filosofía sobre la vida y unos modos de ser, de actuar y de valorar, que orientan el currículo, la toma de decisiones institucionales y la interacción de la comunidad académica, en escenarios de diálogo y participación.”\\
+Entonces, un modelo pedagógico se entenderá como un conjunto de valores, teorías y técnicas científicas o académicas que suponen la enseñanza y formación en diferentes aspectos de los saberes orientados a la persona, su entorno y el uso de las libertades con la finalidad de tener impacto en el proceso educativo para el entendimiento y organización de la cultura.\\
+Como ciencia, la Pedagogía ha dado origen a diferentes modelos o representaciones del mundo educativo a lo largo de su historia para explicar su hacer dentro del entorno social. Estos modelos se caracterizan por ser dinámicos, se transforman y evolucionan conforme su aplicación, algunos de estos son:
+\begin{description}
+\item[Pedagógico tradicional:] Toma como protagonista al profesor que, considerado el experto y poseedor del conocimiento, realiza exposiciones verbales de los temas; por otra parte, el estudiante es visto como una persona carente de conocimiento, receptivo, memorístico, atento y copista.
+\item[Pedagógico romántico:] Se considera que todo conocimiento es valioso y por ello no se hace necesaria su evaluación; el profesor se transforma en un auxiliar y facilitador de la expresión, mientras que el alumno se convierte en un individuo espontaneo con un desenvolvimiento natural dentro del medio que le rodea.
+\item[Pedagógico social:] Un nuevo elemento se integra al protagonismo con este modelo: la sociedad y sus necesidades; de ahí que se plantea para los estudiantes el desarrollo de su personalidad y capacidades cognitivas con relación a ésta.
+\item[Pedagógico cognitivo:] El centro de atención ahora pasa a los procesos mentales y las habilidades cognitivas del estudiante que avanza con la ayuda de un adulto, el profesor.
+\item[Pedagógico constructivista:] Vygotsky plantea que son los factores sociales, culturales e históricos los que intervienen en el desarrollo humano. Su concepto de mediación permite transformar las relaciones sociales en funciones mentales superiores. Él propone que la función del aprendizaje se debe a la creación de Zonas de Desarrollo Próximo (ZDPs).
+\item[Pedagógico de aprendizaje significativo:] Tiene una similitud con el modelo romántico, y el social. La evaluación está orientada hacia la conceptualización.
+\item[Pedagógico conductista:] El profesor toma importancia tomando el rol de guía para que el estudiante alcance los objetivos definidos como precisos, breves, lógicos, exactos y medibles, entonces, el foco de atención se encuentra en producir, retener y transferir aprendizajes.
+\end{description}
+Este último enfoque es aplicado al desarrollo del proyecto como el modelo principal con apoyo de los dos modelos anteriores a éste, ya que se busca realizar cambios en la conducta de los estudiantes, tomando como tal a la adquisición de nuevo conocimiento y su refuerzo, mediante una serie de estímulos positivos y negativos en función de las respuestas que exhiban los participantes.\\
+Los resultados obtenidos por los siguientes trabajos sirvieron como base para tener una primera concepción referente a las características del proyecto que se propone. En estos trabajos se explican que los modelos pedagógicos utilizados con frecuencia en plataformas son el Conductista y el Constructivista.\\
+“La visión detrás del proyecto Claroline es un mundo de aprendizaje, donde cada individuo aprenda bien y mejor mediante la colaboración, el compartir, la construcción del conocimiento de los demás y por los demás.” (Claroline, 2012).\\
+“Los enfoques conductistas están presentes en programas educativos que plantean situaciones de aprendizaje en los que el alumno debe encontrar una respuesta dado uno o varios estímulos presentados en pantalla. Al realizar la selección de la respuesta se asocian refuerzos sonoros, de texto, símbolos, etc., indicándole al estudiante si acertó o erró en la respuesta.” (Universitat Oberta de Catalunya, 2012).\\
+“El diseño y el desarrollo de Moodle se basan en una determinada filosofía del aprendizaje, una forma de pensar que a menudo se denomina "pedagogía construccionista social" [$\ldots$] Este punto de vista mantiene que la gente construye activamente nuevos conocimientos a medida que interactúa con su entorno [$\ldots$] El construccionismo explica que el aprendizaje es particularmente efectivo cuando se construye algo que debe llegar a otros[$\ldots$] Esto extiende las ideas anteriores a la construcción de cosas de un grupo social para otro, creando colaborativamente una pequeña cultura de artefactos compartidos con significados compartidos.” (Moodle Org., 2012).\\
+Cada modelo plantea una forma de interactuar entre el docente, el discente y la sociedad que los rodea, así como la creación de herramientas para la enseñanza que coadyuven en la consecución de sus objetivos, de manera conjunta se da el surgimiento de técnicas de aprendizaje e instrumentos de evaluación que permiten medir el nivel de conocimiento adquirido. Son estos aspectos los que contribuyen a definir el comportamiento del sistema propuesto como una herramienta más que facilite el proceso de evaluación, así como también el reforzamiento del conocimiento adquirido.\\
+Los siguientes apartados exponen la importancia de la interacción mencionada, las herramientas consideradas y las alternativas de evaluación a tomar en cuenta para el diseño del proyecto.
+
+\begin{thebibliography}{2}
+\bibitem{Abud2006}
+Abud figueroa, M. A.,
+2006,
+\textit{Repositorio Digital Institucional IPN.}
+
+\bibitem{Boneu2007}
+Boneu, J. M.,
+2007,
+\textit{Plataformas abiertas de e-learning para el soporte de contenidos educativos abiertos},
+Revista de Universidad y Sociedad del Conocimiento, 4(I),
+36-47
+
+\bibitem{RAE2012}
+\textit{Real Academia Española}
+2012
+Real Academia Española, 22a Edición. (RAE, Editor) 
+\\\texttt{http://www.rae.es/rae.html}
+\end{thebibliography}
+
+\end{document}

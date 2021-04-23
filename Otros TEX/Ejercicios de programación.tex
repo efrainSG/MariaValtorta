@@ -1,0 +1,37 @@
+\documentclass[12pt,spanish,lettersize,twocolumn]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[dvips]{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\title{\color{Maroon}Ejercicios para programar con C/C++}
+\author{L.C.C. Efra\'in Serna Gracia}
+\date{\color{gray}\today}
+
+\begin{document}
+\maketitle
+\section{Introducci\'on}
+Los siguientes son ejercicios voluntarios para resolver en ratos libres. No afectan a ninguna calificaci\'on m\'as que de forma positiva al darte m\'as pr\'actica para resolver los problemas.\\
+Recuerda que cada problema puede tener m\'as de una soluci\'on. Basta con que lo analices, siguas avanzando y luego puede que encuentres otra mejor, m\'as rebuscada, complicada o sencilla.\\
+Experimenta con cada ejercicio, bien puedes preguntarte \emph{Y si hago que haga esto?\ldots} o \emph{Y si agrego aquello?\ldots}
+\section{Preliminares}
+La mejor forma de resolver un problema es dise\~nar la serie de pasos que deber\'a seguir el programa para realizar la tarea (\emph{Algoritmo}), luego realizar el diagramado para detectar posibles problemas desde otra perspectiva (\emph{Diagrama de flujo}) y finalmente codificarlo. En este \'ultimo punto, siguiendo los pasos, la mayor\'ia de los errores ser\'an de sintaxis (la forma en que se escribe seg\'un el lenguaje).
+\subsection{Compilado, Enlazado y ejecutado}
+Para compilar un programa utiliza la instrucci\'on\\
+\emph{gcc -c $< destino>$ $<origen>$}\\
+
+Si vas a compilar y enlazar (crear ejecutable), puedes usar la instrucci\'on\\
+\emph{gcc -o $<destino>$ $<fuente>$}\\
+
+Para ejecutar el resultado del compilado y enlazado (usando la opci\'on \emph{-o}), escribe la instrucci\'on siguiente:\\
+\emph{./$<destino>$}\\
+
+Donde, en las instrucciones anteriores, $<destino>$ es el archivo objeto (para la primera instrucci\'on) o el binario (para la segunda y tercera instrucciones) y $<fuente>$ es el c\'odigo fuente que capturaste.
+\section{Ejercicios}
+\begin{enumerate}
+\item Construye un programa que solicite al usuario dos n\'umeros y luego muestre el resultado de las cuatro operaciones fundamentales con n\'umeros enteros y con n\'umeros de punto flotante. \emph{Recomendaci\'on: Utiliza el tipo de dato m\'as grande para los n\'umeros solicitados al usuario.}
+\item Elabora un programa que reciba del usuario tres n\'umeros y regrese cu\'al es el menor, el mayor y el promedio.
+\item El programa a realizar deber\'a solicitar al usuario tres n\'umeros y determinar si forman un tri\'angulo o no. \emph{En todo tri\'angulo, la suma de dos de sus lados es siempre mayor a la longitud del tercer lado}.
+\item Elabora un programa que solicite un n\'umero entre 1 y 10 y luego muestre las tablas de multiplicar desde el 1 hasta el n\'umero que indic\'o el usuario. Si el usuario ingresa un n\'umero fuera de rango, el sistema deber\'a decirle al usuario que no se permiten n\'umeros menores a 1 ni mayores a 10.
+\end{enumerate}
+\end{document}

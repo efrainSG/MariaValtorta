@@ -1,0 +1,93 @@
+\documentclass[12pt,spanish,twocolumn,lettersize]{article}
+
+\title{Aprendiendo PHP}
+\author{L.C.C. Efra\'in Serna Gracia}
+\date{15 IV 2013}
+
+\begin{document}
+\maketitle
+
+\section{Sintaxis b\'asica}
+PHP es un lenguaje de programaci\'on que permite la creaci\'on de c\'odigo compilado (CGIs) o interpretado (SCRIPTS). Es orientado a objetos y tiene facilidad para el acceso a bases de datos en diferentes motores, as\'i como para la gesti\'on de sesiones, env\'io de datos y manejo de archivos. Es un lenguaje considerado \emph{server side}, es decir, se ejecuta del lado del servidor, por lo que los clientes (los usuarios que navegan) solo ver\'an c\'odigo HTML como resultado.\\
+PHP posee una gram\'atica similar a lenguajes como C/C++ y JAVA, por lo que no es dif\'icil aprenderlo si ya se han manejado estos lenguajes.
+
+\subsection{Declaraci\'on de variables}
+Las variables permiten almacenar diferentes tipos de datos, adem\'as, al ser un lenguaje de \emph{scripting}, PHP no exige la declaraci\'on expl\'icita de \'estas, es decir, no requiere la especificaci\'on del tipo de dato antes de utilizar la variable, como ocurre con C/C++ o JAVA.
+\begin{itemize}
+\item Toda variable se identifica con el signo de moneda al inicio de su nombre (\$).
+\item Una variable no puede llevar espacios en su nombre.
+\item Las variables asumen el tipo seg\'un el dato que se les asigne.
+\end{itemize}
+Existen variables que PHP utiliza a nivel global y \'estas se identifican de la siguiente forma.
+\begin{itemize}
+\item Comienzan con el par de caracteres \$\_
+\item Sus nombres est\'an escritos en may\'usculas
+\end{itemize}
+Por ello, no es posible declarar nuevas variables utilizando estas caracter\'isticas, ya que se pueden cofundir. Ejemplo de estas variables globales son: \emph{\$\_POST, \$\_GET, \$\_SESSION}.
+
+\subsection{Arreglos}
+Un arreglo es una variable que almacena un conjunto de valores bajo un mismo nombre y referenciados por su lugar dentro del mismo. Su manejo es similar a como se realiza en otros lenguajes.
+\begin{itemize}
+\item El primer elemento de un arreglo lleva el \'indice 0 (cero).
+\item El \'indice para el \'ultimo elemento es el n\'umero de elementos menos 1.
+\item Un arreglo, a diferencia de una variable simple, siempre se declara con\\ \emph{new Array()}
+\item Un arreglo puede almacenar elementos de diferentes tipos, incluso otros arreglos de diferentes tama\~nos.
+\item La forma de agregar un nuevo elemento a un arreglo es \emph{\$arreglo[]=valor}
+\end{itemize}
+
+\subsubsection{Arreglos asociativos}
+Son arreglos cuyos elementos pueden ser referenciados tanto por un\'indice num\'erico como por un identificador. Las variables globales mencionadas anteriormente son tambi\'en ejemplos de arreglos asociativos, ya que cada elemento lo podemos referenciar por medio de identificadores que asociaremos con otros elementos.
+
+\subsection{Operadores}
+Dadas las siguientes variables y valores asignados, los resultados de aplicar los operadores se muestran a continuaci\'on.\\
+\begin{tabular}{|c|c|c|c|}
+\hline
+\$v1 & \$v2 & Expresi\'on & Resultado\\ \cline{1-4}
+1 & 2 & \$v3=\$v1+\$v2; & \$v3 vale 3\\
+1 & 2 & \$v3=\$v1-\$v2; & \$v3 vale -1\\
+1 & 2 & \$v3=\$v1*\$v2; & \$v3 vale 2\\
+1 & 2 & \$v3=\$v1/\$v2; & \$v3 vale 0.5\\
+"1" & "2" & \$v3=\$v1.\$v2; & \$v3 vale "12"\\ \hline
+\end{tabular}
+
+\section{Generando HTML}
+PHP puede generar HTML mediante series de comandos para la impresi\'on de cadenas de texto. Para lograr eso (una vez configurado el servidor para que admita PHP) se crean archivos con extension PHP.\\
+Los siguientes son ejemplos de un archivo llamado \emph{hola\_mundo.php} y otro llamado \emph{con\_printf.php}
+\begin{verbatim}
+<?php
+  $titulo = "p&aacute;gina hecha con PHP";
+  echo "<html><head><title>".$titulo;
+  echo "</title></head>";
+  echo "<body>".$titulo."</body>";
+  echo "</html>";
+?>
+
+
+<?php
+  $titulo = "p&aacute;gina hecha con PHP";
+  printf("<html><head><title>%s",$titulo);
+  printf("</title></head>");
+  printf("<body>%s",$titulo);
+  printf("</body></html>");
+?>
+\end{verbatim}
+Tambi\'en se puede combinar HTML y PHP en un archivo y producir la misma salida. El siguiente ejemplo es un archivo llamado \emph{html\_php.php}
+\begin{verbatim}
+<?php
+  $titulo = "p&aacute;gina hecha con PHP";
+?>
+<html>
+  <head>
+    <title><?php echo $titulo; ?>
+    </title>
+  </head>
+  <body>
+    <?php echo $titulo; ?>
+  </body>
+</html>
+?>
+
+\end{verbatim}
+\section{HTML y PHP}
+\subsection{M\'etodos para env\'io de datos a PHP}
+\end{document}

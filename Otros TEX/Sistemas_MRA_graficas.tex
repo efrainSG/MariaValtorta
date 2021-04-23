@@ -1,0 +1,146 @@
+\documentclass[11pt,spanish,lettersize]{article}
+\usepackage[dvips]{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage[makeroom]{cancel}
+\usepackage[spanish]{babel}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{amssymb}
+\usepackage{chngcntr}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{graphics}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{subcaption}
+\usepackage{vmargin}
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+\title{\color{Maroon}Modelado de un robot r\'igido de dos grados de libertad}
+\author{Efra\'in Serna Gracia}
+\date{\color{gray}\today}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Efra\'in Serna Gracia}
+\lhead{Sistemas Din\'amicos}
+\rfoot{\thepage}
+\begin{document}
+\maketitle
+Las ecuaciones que definen el movimiento de un brazo robot de $n$ grados de libertad se dan por la siguiente ecuaci\'on
+\begin{equation}\label{dLagrangiano}
+\frac{d}{dt}\left(\frac{\partial L(\theta,\dot{\theta})}{\partial\dot{\theta}}\right)-\frac{\partial L(\theta,\dot{\theta})}{\partial\theta}=\tau
+\end{equation}
+Para determinarlas, se requiere de encontrar el valor para $L(\theta,\dot{\theta})$ que se define como sigue:
+\begin{eqnarray}
+L(\theta,\dot{\theta})&=&K(\theta,\dot{\theta})+U(\theta)\label{Completa}\\
+K(\theta,\dot{\theta})&=&K_1(\theta,\dot{\theta})+K_2(\theta,\dot{\theta})\\
+K_i(\theta,\dot{\theta})&=&\frac{1}{2}(mv^2+I\dot{\theta}^2)\label{Cinetica}\\
+U(\theta)&=&U_1(\theta)+U_2(\theta)\label{Potencial}\\
+C_1=&\left[\begin{array}{c}
+x_1\\
+-y_1
+\end{array}\right]=&\left[\begin{array}{c}
+L_{c1}sen\theta_1\\
+-L_{c1}cos\theta_1
+\end{array}\right]\\
+C_2=&\left[\begin{array}{c}
+x_2\\
+-y_2
+\end{array}\right]=&\left[\begin{array}{c}
+L_1sen\theta_1+L_{c2}sen(\theta_1+\theta_2)\\
+-L_1cos\theta_1-L_{c2}cos(\theta_1+\theta_2)\\
+\end{array}\right]
+\end{eqnarray}
+
+Determinando las posiciones de los centros de masa
+\begin{eqnarray}
+\left.\begin{array}{rcl}
+C_1&=&L_{c1}(sen\theta_1+cos\theta_1)\\
+C_2&=&L_1(sen\theta_1-cos\theta_1)+L_{c2}(sen(\theta_1+\theta_2)-cos(\theta_1+\theta_2))
+\end{array}\right\}
+\end{eqnarray}
+
+Las velocidades se obtienen de las derivadas de las posiciones, resultando en lo siguiente:
+\begin{eqnarray}
+\dot{C_1}&=&\left[\begin{array}{c}
+L_{c1}\dot{\theta_1}cos\theta_1\\
+L_{c1}\dot{\theta_1}sen\theta_1
+\end{array}\right]\\
+\dot{C_2}&=&\left[\begin{array}{c}
+L_1\dot{\theta_1}cos\theta_1+L_{c2}(\dot{\theta_1}+\dot{\theta_2})cos(\theta_1+\theta_2)\\
+L_1\dot{\theta_1}sen\theta_1+L_{c2}(\dot{\theta_1}+\dot{\theta_2})sen(\theta_1+\theta_2)\\
+\end{array}\right]
+\end{eqnarray}
+
+Como la f\'ormula requiere los cuadrados de las velocidades, entonces resultan en:
+\begin{eqnarray}
+\nonumber\dot{C_1}^2&=&\left[\begin{array}{c}
+(L_1\dot{\theta_1})^2cos^2\theta_1\\
+(L_1\dot{\theta_1})^2sen^2\theta_1
+\end{array}\right]\Rightarrow\\
+\nonumber\dot{C_1}^2&=&(L_{c1}\dot{\theta_1})^2cos^2\theta_1+(L_{c1}\dot{\theta_1})^2sen^2\theta_1\\
+\nonumber&=&(L_{c1}\dot{\theta_1})^2(\cancelto{1}{cos^2\theta_1+sen^2\theta_1})\Rightarrow\\
+\dot{C_1}^2&=&(L_{c1}\dot{\theta_1})^2\label{C12}\\
+\nonumber\dot{C_2}^2&=&\left[\begin{array}{c}
+(L_1\dot{\theta_1})^2cos^2\theta_1+\\
+2L_1\dot{\theta_1}cos\theta_1L_{c2}(\dot{\theta_1}+\dot{\theta_2})cos(\theta_1+\theta_2)+\\
+(L_{c2}(\dot{\theta_1}+\dot{\theta_2}))^2cos^2(\theta_1+\theta_2)\\ \\
+(L_1\dot{\theta_1})^2sen^2\theta_1+\\
+2L_1\dot{\theta_1}sen\theta_1L_{c2}(\dot{\theta_1}+\dot{\theta_2})sen(\theta_1+\theta_2)+\\
+(L_{c2}(\dot{\theta_1}+\dot{\theta_2}))^2sen^2(\theta_1+\theta_2)
+\end{array}\right]\Rightarrow
+\end{eqnarray}
+
+\begin{eqnarray}
+\nonumber\begin{array}{rcl}
+\dot{C_2}^2&=&(L_1\dot{\theta_1})^2(cos^2\theta_1+sen^2\theta_1)+\\
+&&2L_1\dot{\theta_1}L_{c2}(\dot{\theta_1}+\dot{\theta_2})(cos\theta_1cos(\theta_1+\theta_2)+sen\theta_1sen(\theta_1+\theta_2))+\\
+&&(L_{c2}(\dot{\theta_1}+\dot{\theta_2}))^2(cos^2(\theta_1+\theta_2)+sen^2(\theta_1+\theta_2))
+\end{array}\Rightarrow\\
+\nonumber\begin{array}{rcl}
+\dot{C_2}^2&=&(L_1\dot{\theta_1})^2(\cancelto{1}{cos^2\theta_1+sen^2\theta_1})+\\
+&&2L_1\dot{\theta_1}L_{c2}(\dot{\theta_1}+\dot{\theta_2})(cos\theta_1cos(\theta_1+\theta_2)+sen\theta_1sen(\theta_1+\theta_2))+\\
+&&(L_{c2}(\dot{\theta_1}+\dot{\theta_2}))^2(\cancelto{1}{cos^2(\theta_1+\theta_2)+sen^2(\theta_1+\theta_2)})
+\end{array}\Rightarrow\\
+\begin{array}{rcl}
+\dot{C_2}^2&=&(L_1\dot{\theta_1})^2+2L_1\dot{\theta_1}L_{c2}(\dot{\theta_1}+\dot{\theta_2})cos((\theta_1+\theta_2)-\theta_1)+(L_{c2}(\dot{\theta_1}+\dot{\theta_2}))^2\Rightarrow\\
+\dot{C_2}^2&=&(L_1\dot{\theta_1})^2+2L_1\dot{\theta_1}L_{c2}(\dot{\theta_1}+\dot{\theta_2})cos(\theta_2)+(L_{c2}(\dot{\theta_1}+\dot{\theta_2}))^2\label{C22}
+\end{array}
+\end{eqnarray}
+Aplicando los resultados de las ecuaciones [\ref{C12}] y [\ref{C22}] en [\ref{Cinetica}]
+\begin{eqnarray}
+K_1(\theta,\dot{\theta})&=&\frac{1}{2}(m(L_{c1}\dot{\theta_1})^2+I\dot{\theta_1}^2)\\
+\nonumber K_2(\theta,\dot{\theta})&=&\frac{1}{2}(m((L_1\dot{\theta_1})^2+2L_1\dot{\theta_1}L_{c2}(\dot{\theta_1}+\dot{\theta_2})cos(\theta_2)+(L_{c2}(\dot{\theta_1}+\dot{\theta_2}))^2)+\\
+&&I(\dot{\theta_1}+\dot{\theta_2})^2)\label{CineticaTotal}
+\end{eqnarray}
+La energ\'ia potencial de los eslabones del brazo quedan definidos como sigue, y la suma de ambos define la del brazo completo de la siguiente manera:
+\begin{eqnarray}
+U_1(\theta)&=&-m_1L_{c1}g cos(\theta_1)\\
+U_2(\theta)&=&-m_2L_1g cos(\theta_1)-m_2L_{c2}g cos(\theta_1+\theta_2)\Rightarrow\\
+U(\theta)&=&-g[cos\theta_1(m_1L_{c1}+m_2L_1)+m_2L_{c2}cos(\theta_1+\theta_2)]\label{PotencialTotal}
+\end{eqnarray}
+Sustituyendo [\ref{CineticaTotal}] y [\ref{PotencialTotal}] en [\ref{Completa}]
+\begin{eqnarray}
+\nonumber L(\theta,\dot{\theta})&=&\frac{1}{2}(m((L_1\dot{\theta_1})^2+2L_1\dot{\theta_1}L_{c2}(\dot{\theta_1}+\dot{\theta_2})cos(\theta_2)+(L_{c2}(\dot{\theta_1}+\dot{\theta_2}))^2)+\\
+\nonumber &&I(\dot{\theta_1}+\dot{\theta_2})^2)+-g[cos\theta_1(m_1L_{c1}+m_2L_1)+m_2L_{c2}cos(\theta_1+\theta_2)]
+\end{eqnarray}
+Tomando [\ref{Completa}] y sustituyendo en [\ref{dLagrangiano}] de la iguiente forma:
+\begin{eqnarray}
+\left.\begin{array}{c}
+\frac{d}{dt}\left(\frac{\partial L(\theta,\dot{\theta})}{\partial\dot{\theta_1}}\right)-\frac{\partial L(\theta,\dot{\theta})}{\partial\theta_1}=\tau_1\\
+\frac{d}{dt}\left(\frac{\partial L(\theta,\dot{\theta_2})}{\partial\dot{\theta}}\right)-\frac{\partial L(\theta,\dot{\theta})}{\partial\theta_2}=\tau_2
+\end{array}\right\}\Rightarrow\\
+\end{eqnarray}
+\begin{eqnarray}
+\nonumber\frac{\partial L(\theta,\dot{\theta})}{\partial\dot{\theta_1}}&=&mL_1^2\dot{\theta_1}+2L_1L_{c2}m\dot{\theta_1}cos\theta_2+L_1L_{c2}m\dot{\theta_2}cos\theta_2+\\
+\nonumber&&mL_{c1}^2+L_{c2}^2m\dot{\theta_2}+I\dot{\theta_1}+I\dot{\theta_2}\\
+&=&(mL_1^2+mL_{c1}^2)\dot{\theta_1}+L_1L_{c2}mcos\theta_2(2\dot{\theta_1}+\dot{\theta_2})+I(\dot{\theta_1}+\dot{\theta_2})+L_{c2}^2m\dot{\theta_2}\label{ParcialT1b}
+\end{eqnarray}
+\begin{eqnarray}
+\frac{\partial L(\theta,\dot{\theta_2})}{\partial\dot{\theta_2}}&=&L_{c2}m\dot{\theta_1}(L_1cos\theta_2+L_{c2})+I(\dot{\theta_1}+\dot{\theta_2})+mL_{c2}^2\dot{\theta_2}\label{ParcialT2b}\\
+\frac{\partial L(\theta,\dot{\theta_2})}{\partial\theta_1}&=&\dot{\theta_1}gsen\theta_1(m_1L_{c1}+m_2L_1+m_2L_2)\label{ParcialT1}\\
+\frac{\partial L(\theta,\dot{\theta_2})}{\partial\theta_2}&=&\dot{\theta_2}L_1L_{c2}msen\theta_2(\dot{\theta_1}^2-\dot{\theta_1})+gm_2L_2\dot{\theta_2}sen\theta_2\label{ParcialT2}\\
+\nonumber\frac{d}{dt}\left(\frac{\partial L(\theta,\dot{\theta})}{\partial\dot{\theta_1}}\right)&=&m\ddot{\theta_1}(L_1^2+L_{c1}^2)-L_1L_{c2}m\dot{\theta_2}sen\theta_2(2\ddot{\theta_1}+\ddot{\theta_2})+\\
+&&I(\ddot{\theta_1}+\ddot{\theta_2})+L_{c2}^2m\ddot{\theta_2}\label{dtParcialT1b}\\
+\frac{d}{dt}\left(\frac{\partial L(\theta,\dot{\theta_2})}{\partial\dot{\theta_2}}\right)&=&L_{c2}m\ddot{\theta_1}(-L_1\dot{\theta_2}sen\theta_2)+I(\ddot{\theta_2}-\ddot{\theta_1})+mL_{c2}^2\ddot{\theta_2}\label{dtparcialT2b}
+\end{eqnarray}
+\end{document}

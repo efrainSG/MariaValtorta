@@ -1,0 +1,174 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% This is a simple template for a LaTeX document using the "article" class.
+% See "book", "report", "letter" for other types of document.
+
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+%%% Examples of Article customizations
+% These packages are optional, depending whether you want the features they provide.
+% See the LaTeX Companion or other references for full information.
+
+%%% PAGE DIMENSIONS
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+% \geometry{margin=2in} % for example, change the margins to 2 inches all round
+% \geometry{landscape} % set up the page for landscape
+%   read geometry.pdf for detailed page layout information
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+% \usepackage[parfill]{parskip} % Activate to begin paragraphs with an empty line rather than an indent
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{project}
+\author{Efraín}
+%\date{} % Activate to display a given date or no date (if empty),
+         % otherwise the current date is printed 
+
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Miércoles}
+
+la vista de \emph{tracking Gantt} sirve para dar seguimiento al proyecto, para poder hacerlo hay que obtener una línea base.\\
+
+En la cinta Proyecto, el grupo Status, en Fecha de Estado fijo la fecha en la que me encuentro en el proyecto.\\
+
+en la cinta Proyecto, en el grupo Estado se da clic en \emph{Actualizar proyecto} para definir la nueva fecha de estado, con lo que hace un cálculo de avance, además de especificarse que contabilice tareas en $0\%$ o $100\%$, o de cualquier porcentaje de avance, para todo o para algunas tareas.\\
+
+Control de cambios: guardar la historia de la línea base original. Se debe generar una nueva línea base antes de modificar, esto guarda: fechas, duración y costo del proyecto.\\
+
+\section{Jueves}
+se puede definir la forma en que se hace la programación de cargas de trabajo\\
+
+en la información del recurso, para la pestaña de costos se puede especificar diferentes esquemas de costos, dependiendo del rol que puede desempeñar el recurso.\\
+
+En el \emph{tracking Gantt} se...\footnote{Me perdí}
+
+\subsection{Campos calculados}
+\begin{enumerate}
+\item Proyecto nuevo
+\item \emph{Custom fields}
+\item Elegir clase
+\begin{enumerate}
+\item Task
+\item Resource
+\item Project
+\end{enumerate}
+ y tipo de campo
+\begin{enumerate}
+\item Number
+\item Text
+\item Cost
+\end{enumerate}
+\item clic en \emph{Rename}
+\end{enumerate}
+
+\begin{verbatim}
+Format(IIf(IsNull([Fin estimado de línea base]) Or [Comienzo previsto] $>$ 
+[Fecha de estado] Or [Duración estimada de línea base] $= 0$; IIf([Hito] And 
+[Comienzo previsto] $<=$ [Fecha de estado]; 1; 0); 
+IIf([Fin estimado de línea base] $<=$ [Fecha de estado]; 1; 
+(ProjDateDiff([Comienzo previsto]; [Fecha de estado]; 
+[Calendario del proyecto]) $/$ [Duración estimada de línea base])));
+ “$0\%$”)
+\end{verbatim}
+
+Consideraciones a tener en cuenta para el correcto calculo de las formulas:
+\begin{enumerate}
+\item Las tareas deben establecer líneas base
+\item Debe estar establecida la fecha de estado (Status Date)
+\item Estas formulas son aceptadas en el mercado como correctas, a pesar de sus excepciones.
+\item Confirme que el separado de la formula es el punto y como (;) o la coma (,) si la formula presenta errores.
+\end{enumerate}
+
+Excepciones de la formula:
+\begin{enumerate}
+\item Todas las formulas asumen que la duración es continua entre la fechas de inicio y fin planificadas, por tanto, cuando las tareas no tienen una duración acorde a las fechas planificadas, la formula presentará un valor de avance planeado impreciso.
+\item Si el recurso asignado a la tarea no tiene una duración diaria completa (8 horas) sino diferente (ejemplo: 4 horas) la formula igual presentará un valor de avance planeado impreciso.
+\end{enumerate}
+	
+Ejemplo de las excepciones:
+\begin{enumerate}
+\item Datos Iniciales: 
+\begin{enumerate}
+\item Comienzo previsto: 22/07/2015 9:00
+\item Fin estimado de línea base: 27/07/2015 15:00
+\item Duración estimada de línea base: 16 Hrs
+\item Fecha de Estado: 23/07/2015 18:00
+\end{enumerate}
+\item Resultado de las formulas: 
+\begin{enumerate}
+\item \% Esperado: 93.75\%
+\end{enumerate}
+\item Aclaraciones del resultado: 
+\item Entre las fechas de inicio y fin hay 26 horas laborales (en jornada laboral de 8 horas diarias, de lunes a viernes) pero la tarea esta ajustada para ejecutarse solo en 16 horas (posiblemente distribuidas en 4 horas diarias)
+\item La formula asume que la duración es continua (26 horas), por tanto, si la fecha de estado es el día 23/07/2015 a las 6 PM, ya se han ejecutado 15 horas y el porcentaje esperado es calculado en 93.75\%.
+\end{enumerate}
+Solución para las exclusiones:
+\begin{enumerate}
+\item No existen soluciones, el líder del proyecto debe tener en cuenta estas variaciones en el seguimiento de su cronograma de forma tal que pueda realizar el seguimiento de la forma adecuada.
+\item Es imposible crear una formula que contemple todas las excepciones en la ejecución de tareas, como: 
+\begin{enumerate}
+\item Tareas programadas para ejecución en horas especificas de cada día, que no cubren toda la jornada laboral.
+\item Recursos que trabajan en jornadas laborales especificas o cambiantes día a día.
+\item Días de inactividad durante la ejecución de la tarea, pero que no están marcados como no laborales en el calendario.
+\item Ejecución de la tarea en horas cambiantes día a día que no correspondan con la jornada laboral establecida.
+\end{enumerate}
+\end{enumerate}
+
+\section{Creando un plan de trabajo nuevo}
+Todas las opciones que menciono son para la versión en inglés.
+
+\subsection{Preparación}
+Lo primero que hago es definirla forma en que se crearán nuevas tareas para mi plan, esto es fácil desde la barra de estado, donde al lado izquierdo en cuentro un botón que dice \emph{New Tasks: Manually Scheduled} y por practicidad lo cambio a \emph{Auto Scheduled}, así se irán acomodando automáticamente en el tiempo.\\
+
+Ahora, en la cinta \emph{Project} mediante el botón \emph{Change Work Time} defino las jornadas de trabajo. Con el botón \emph{Create New Calendar} creo un nuevo calendario de trabajo, el cual puedo basar en el calendario estándar o en uno nuevo. Por el momento lo basaré en el estándar. Como es para mis propias actividades, omitiré la sección \emph{Exceptions} donde especifico excepciones o días no laborables. En la sección \emph{Work Weeks} con el botón \emph{details} defino las horas de trabajo.\\
+
+En la misma cinta, en el botón \emph{Project Information} especifico las fechas de inicio o fin,la fecha actual para el proyecto, la fecha de estado, el tipo de calendarización y si me basaré en la fecha de inicio del proyecto o de término.
+
+\subsection{Recursos}
+En qué me voy a apoyar, quién cumplirá qué rol(es), cuál será el costo por el trabajo. Esto lo defino en la vista \emph{Resource Sheet}. Como soy solo yo, estableceré lso roles que cubriré, luego definiré costos por función que desempeñe.\\
+
+Puedo definir el tipo de recurso, así que colocaré algunso roles como \emph{Work} y como planeo un ahorro, definiré un rol como \emph{Ahorrador} que será de tipo \emph{Cost}. En cada uno hay campos que quedan bloqueados o libres, para el caso de mis roles de \emph{Work} defino \emph{Std. Rate} para jornada estándar y \emph{Ovt.} para horas extra. También especifico con base en qué calendario voy a aplicar cada recurso. Así que aplicaré costos para un estimado, aunque como soy yo, no me voy a pagar, pero sirve para tener idea en un proyecto externo.\\
+
+\subsection{Definiendo las tareas}
+En la vista \emph{Task Sheet} Defino todas las tareas que involucran mi plan, además de organizarlas por grupos o tareas resumen. También especifico la secuencia, si van a comenzar a la par, terminar a la par, en secuencia, recursos necesitados, fechas de inicio/fin.\\
+
+En la cinta \emph{Format} se encuentra un par de opciones: \emph{Outline Number} muestra el número en formato de esquema para cada tarea, mientras que \emph{Project Summary} muestra la tarea resumen del proyecto o tarea cero.\\
+
+
+\end{document}

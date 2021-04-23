@@ -1,0 +1,198 @@
+\documentclass[12pt,spanish,lettersize]{book}
+\usepackage[dvips]{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage[makeroom]{cancel}
+\usepackage[spanish]{babel}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{amssymb}
+\usepackage{chngcntr}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{graphics}
+\usepackage[hidelinks]{hyperref}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{vmargin}
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+\newtheorem{teo}{Teorema}[section]
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Efra\'in Serna Gracia}
+\lhead{Memorias de un desarrollador}
+\rfoot{\thepage}
+\setmargins
+{1.25in} %left
+{0.5in}  %top
+{6in}    %width / right
+{7.5in}  %height / bottom
+{1in}    %head height
+{0.5in}  %head sep
+{1in}    %foot height
+{0.5in}  %foot skip
+\begin{document}
+\begin{titlepage}
+\begin{center}
+MSG Fast Service\\
+\vspace*{0.15in}
+Memorias de un desarrollador \\
+\vspace*{0.6in}
+\vspace*{0.2in}
+\begin{Large}
+\textbf{Sobre el aprendizaje de lenguajes de programaci\'on y su aplicaci\'on durante el tiempo laboral} \\
+\end{Large}
+\vspace*{0.3in}
+\begin{large}
+Memorias de c\'omo aprend\'i e innov\'e con PHP, C\#, ASP.NET, SQL Server y otros\\
+\end{large}
+\vspace*{0.3in}
+\rule{80mm}{0.1mm}\\
+\vspace*{0.1in}
+\begin{large}
+Autor: \\
+L.C.C. Efra\'in Serna Gracia \\
+\vspace*{0.3in}
+Correo electr\'onico: efrain.serna@msg-fs.com\\
+Sitio web: http://msg-fs.com
+\end{large}
+\end{center}
+\end{titlepage}
+\tableofcontents
+\chapter{Iniciando formalmente mi carrera como desarrollador}
+Hace un mes que me integr\'e a un equipo de desarrollo. Siempre es algo interesante y lleno de oportunidades, ya que siempre hay cosas que aprender, puesto que se debe modificar y ajustar lo que otras personas han hecho en algo completamente abstracto, intocable y donde los cambios no son tan notorios. Es la oportunidad de entrar en otras mentes, compartir, reorganizar el conocimiento y descubrir nuevas estrategias.\\
+
+En otras ocasiones me he incorporado como parte de un equipo a proyectos que inician, y en otras m\'as ent\'e a colaborar en un sistema en proceso de desarrollo, pero participo pr\'acticamente como desarrollador \'unico.\\
+
+Podr\'iamos hacer un producto cartesiano con las posibles situaciones y ser\'ia:n muy variadas:
+\begin{itemize}
+\item Integrarme a un equipo 
+\item Integrarme como desarrollador \'unico 
+\item a un proyecto en comienzo 
+\item a un proyecto comenzado 
+\item con descripci\'on de requisitos 
+\item sin descripci\'on de requisitos 
+\item con documentaci\'on de desarrollo 
+\item sin documentaci\'on de desarrollo 
+\end{itemize}
+
+La integraci\'on a un equipo trae tiempo para conocer m\'as gente, intercambiar ideas y colaborar en proyectos de buen tama\~no con complejidad y cada uno tiene responsabilidades bien definidas (o esa es la idea), por otra parte, el entrar como desarrollador \'unico implica que conocer\'as cada parte del sistema (base de datos, modelos, interfaces).\\
+
+El incorporarse a un proyecto que comienza da la ventaja de que estar\'as en un equipo que dar\'a la pauta inicial para todo el desarrollo, habr\'an acuerdos y asignaci\'on, conocer\'as los tiempos y tendr\'as oportunidad de establecer m\'etricas y arquitecturas para las siguientes etapas del desarrollo. Tomar parte de un proyecto ya comenzado incrementa tu capacidad de an\'alisis, ya que tendr\'as que estudiar y entender lo que desarrolladores anteriores hicieron. Aprender\'as nuevas t\'ecnicas y ampliar\'as tu abanico de opciones.\\
+
+En estas dos partes, cada una representa ventaja sobre su contraparte, i.e.\footnote{del lat\'on \emph{id est} que significa "Esto es" o "es decir"}, una parte no est\'a sobre la otra. Lo que sigue es lo que puede provocar desequilibro que tendr\'as que aprender a transformar en ventajas, oportunidades y fortalezas\\
+
+Si el proyecto tiene documentaci\'on de requisitos, es m\'as f\'acil entender de d\'onde se parte y hacia d\'onde se va, se puede comprender el alcance del sistema y conforme entiendes mejor la operaci\'on del futuro sistema puedes tambi\'en definir mejoras. Algo que un sistema sin documentaci\'on de requisitos vuelve complicado y en ocasiones (muchas) cansado. Pero no es tan oscuro como parece, ya que en un proyecto sin documentaci\'on de requisitos tienes la oportunidad de estudiarlo m\'as a fondo para entender lo que hace, tendr\'as que recurrir a las fuentes de informaci\'on que lo plantearon y tendr\'as que elaborar esa documentaci\'on. Esto te convierte en un analista aut\'entico.\\
+
+Si el sistema cuenta con una documentaci\'on de desarrollo, entonces la curva de aprendizaje sobre el mismo se vuelve m\'as corta y es m\'as r\'apida la adquisici\'on de ese conocimiento para continuar el proyecto. En caso de no haberla, es m\'as complicado y el tiempo se extiende, lo que pondr\'a a prueba tu resistencia m\'as que tus conocimientos, tu capacidad autodidacta y de investigaci\'on. No es que lo tengas que saber todo, sino encontrar las fuentes de informaci\'on y consultarlas cada que lo necesites. Adem\'as de obligarte a establecer mucha comunicaci\'on con todos los implicados en el proceso. 
+
+\section{IV/VIII/MMXVI}
+
+Recuerdo los primeros proyectos en los que particip\'e. No se defin\'ia una arquitectura, se ten\'ia una idea general del sistema pero no ten\'iamos algo definido m\'as all\'a de procurar reutilizar lo m\'as posible el c\'odigo, hacerlo lo suficientemente general para usarlo en todos lados y suficientemente espec\'ifico para la tarea. En esos momentos, los mejores eran quienes pod\'ian definir clases, herencia, interfaces. Los buenos defin\'ian clases y m\'etodos generales capaces de ser reutilizados, los dem\'as programaban estilo procedimental.\\
+
+Actualmente me considero buen programados-desarrollador, a\'un no llego a ser "Mejor" pero siempre voy mejorando. Defino clases, herencias, interfaces, eventos, lo que ocurre es que tengo que aprender mejor a trabajar las interfaces y las nuevas arquitecturas por capas. Bueno, no es tan complicado en la teor\'ia, en la pr\'actica hay tanta diversidad como lenguajes y frameworks existen. \\
+
+- Ya llevo media taza de caf\'e, voy a necesitar otra pronto \\
+
+Estoy ampliando mi repertorio de lenguajes: jQuery, T-SQL, AJAX, Python, F\#\\ 
+
+Es interesante aprender nuevos lenguajes y Frameworks, facilitan mucho la vida, aunque luego quedan las ganas de hacer las cosas al estilo de "la vieja escuela". Ahorita aprendiendo jQuery para facilitar la programaci\'on con JavaScript y AJAX e incorporarlo a mis aplicaciones me acabo de dar cuenta que se me acab\'o mi caf\'e! \\
+
+Revisar c\'odigo escrito por otros es una gran fuente de informaci\'on, claro que debes tener la costumbre de investigar, porque seguramente habr\'a muchas cosas que no hayas conocido, especialmente si quienes lo dise\~naron ya tienen m\'as experiencia que t\'u. Una fuente pr\'actica (siempre manej\'andote dentro de lo \'etico) es el propio c\'odigo del proyecto que est\'as trabajando y que no hayas creado t\'u, as\'i puedes encontrar t\'ecnicas y estilos que puedes agregar a tu repertorio para futuros proyectos. Aclaro que hay que manejarse \'eticamente, porque no es lo mismo replicar una t\'ecnica que replicar un proyecto, lo primero es aprendizaje, lo segundo es plagio (sumamente penalizado)\\
+
+Ahora desarrollo sistemas en equipo con sistemas de subversionado y de forma individual donde no uso este tipo de sistemas y contrasto las diferencias, por lo que estoy pensando en mejorar mis equipos para agregar un sistema de este tipo, de preferencia gratis, ya sea de c\'odigo cerrado o de c\'odigo abierto. \\
+
+El aprender a desarrollar sistemas en equipo tambi\'en da experiencia y visi\'on de alcance, por lo que estoy pensando en reestructurar mis proyectos para definir un n\'ucleo, mismo sobre el que construir\'ia las nuevas versiones y las variantes, as\'i para mis clientes (actuales y futuros) puedo hacer correcciones y mejoras centrales para todos y modificaciones particulares sin revolverme. \\
+
+Son muchas las cosas que como desarrollador vas aprendiendo y prometo compartir lo que voy aprendiendo y en tan solo en lo que llevo escrito tenemos: \\
+
+"compartir, reorganizar el conocimiento, estrategias, producto cartesiano, intercambiar ideas, base de datos, modelos, interfaces, capacidad de an\'alisis; t\'ecnicas, aprender a transformar en ventajas, oportunidades y fortalezas, documentaci\'on de requisitos, la curva de aprendizaje, capacidad autodidacta y de investigaci\'on, arquitectura del software, reutilizar lo m\'as posible el c\'odigo, clases, herencia, interfaces, m\'etodos, estilo procedimental, eventos, lenguajes, frameworks, jQuery, T-SQL, AJAX, Python, F\#, JavaScript, AJAX, funci\'on , html, hosting, servidor web, plagio, sistemas de subversionado, c\'odigo cerrado, c\'odigo abierto" \\
+
+\section{V/VIII/MMXVI}
+
+Para desarrollar sistemas es necesario cierto nivel de concentraci\'on y enfoque, por lo que el ambiente debe estar libre de distractores (en lo que comienzas), adem\'as debes disponer de m\'usica agradable que te mantenga en un ritmo de trabajo adecuado. La recomendaci\'on en la m\'usica es cl\'asica -movimientos alegres y movimientos intensos-, techno con poca voz -cuidado porque puede resultar repetitiva, pero sus bajos ayudan a mantener un ritmo cardiaco adecuado-, Dance -preferentemente en un idioma que desconozcas para que la voz no te distraiga-, para descansos por momentos, nuevamente m\'usica cl\'asica -movimientos m\'as relajados- e instrumental, ambiental y sonidos naturales tranquilizantes. \\
+
+Con un manejo adecuado podr\'as estar en la zona por mucho tiempo. 
+
+\chapter{Sobre PHP y mi intranet}
+En uno de mis primeros proyectos, habiendome incorporado como DBA\footnote{DataBase Administrator} y puesto que apenas comenzaba, no quise meterme en m\'as lios de lo que el desarrollar el sistema era, as\'i que cuando el lider coment\'o que requer\'ia una base del conocimiento, me d\'i a la tarea de ir desarrollando una en los ratos libres o en los momentos que me cansaba de programar el proyecto as\'i que instal\'e un servidor web en mi equipo y comenc\'e a dise\~narla usando XML (aprovech\'e esta oportunidad para aprender un poco al respecto de este lenguaje y la forma en que se manipula su estructura para darle formato. De esa manera inici\'e mi incursi\'on en Apache-PHP-MySQL, que al inicio fue Apache-PHP-XML
+\section{Sitios web}
+Un sitio web es un sitio formado por un conjunto de archivos que se vinculan entre s\'i y para con otros sitios. EL formato definido para los sitios web m\'as sencillos es HTML puro y llano. Actualmente se utiliza en combinaci\'on con otros estándares y lenguajes para lograr una experiencia de usuario m\'as grata.
+\subsection{HTML}
+Significa \emph{Hyper Text Markup Language} Se basa en definir la estructura de una p\'agina mediante indicadores. Un indicador para el inicio y el final, otro para el encabezado y otro para el cuerpo, uno m\'as para tablas y otro para capas.\\
+Las p\'aginas web sencillas se guardan con la extensi\'on \emph{.html}. Hay otras extensiones y cada una refiere a algo en espec\'ifico: \emph{php} para p\'aginas escritas con PHP, \emph{aspx} para p\'aginas escritas en ASP.NET, ambos son lenguajes de tipo \emph{server-side}, \emph{pl} para p\'aginas PERL, \emph{js} para p\'aginas JavaScript
+\subsubsection{Dise\~no mediante atributos y etiquetas}
+\subsection{CSS}
+\subsubsection{CSS \emph{in-line}}
+\subsubsection{CSS empotrado o \emph{embebido}}
+\subsubsection{CSS separado}
+\subsubsection{Clases}
+\subsubsection{Identificadores}
+\subsubsection{Eventos}
+\section{Apache}
+Es un servidor web, aunque no es necesario para crear sitios web sencillos, s\'i lo es para otras cosas, mismas que listar\'e a continuaci\'on:
+\begin{description}
+\item[Seguridad y acceso]
+\item[Uso de lenguajes \emph{server-side}]
+\item[Organizaci\'on de dominios]
+\end{description}
+\section{PHP}
+\section{XML}
+\section{JavaScript y famila}
+Ahorita estoy viendo la funci\'on ".load" para carga de contenido v\'ia AJAX en elementos y me encuentro con que no puedo usarlo para llamar desde un html hacia un sitio en general, se necesitan permisos por parte de los servidores externos. As\'i que esto hay que esperar a tener acceso a mi cuenta de hosting para probarlo porque en el equipo actual no tengo instalado un servidor web. Junto a esta funci\'on, "\$.get()" y "\$.post()" lucen interesantes para la interacci\'on entre p\'aginas. Podr\'ia usar estas dos \'ultimas funciones para enviar datos y luego ejecutar una funci\'on que invoque la p\'agina de respuesta, misma que cargar\'ia mediante un .load() en un contenedor?\\
+
+-Ahorita estar\'e estudiando jQuery + AJAX con m\'usica Dance, luego documentar\'e con m\'usica ambiental y programar\'e con techno y cl\'asica intensa.\\
+
+S\'e que AJAX es una tecnolog\'ia basada en JavaScript y XML para que las p\'aginas se actualicen din\'amicamente, sabi\'endolo usar (eso estoy aprendiendo) resulta en aplicaciones web ligeras y din\'amicas, en caso contrario se vuelve muy pesado. En el proyecto actual se usa mucho jQuery que es un Framework de JavaScript, es usado para todas las comunicaciones y cargas de formularios y datos. La ventaja que da es que no se necesita recargar el formulario, solo se env\'ian los datos mediante AJAX y con eso se obtiene un resultado que se muestra en un cuadro modal o una alerta. El resto permanece id\'entico. El lenguaje de comunicaci\'on predilecto actualmente para estas tecnolog\'ias es JSON (pronunciado "Yeison", como en el caso de Jas\'on en ingl\'es) que permite enviar datos en una notaci\'on m\'as sencilla y ligera que XML, adem\'as de serializable y ser multidimensional. \\
+
+Esto est\'a permitiendo que nuestro sistema trabaje por capas, donde la interfaz (dibujada enteramente con Javascript con jQuery y con manejo de los eventos por este medio para el env\'io de datos hacia los controladores (segunda capa) mediante \$.post, de los controladores (dise\~nados actualmente solo como interfaz con la siguiente capa) pasan los datos hacia los modelos y de estos hacia la base de datos. \\
+
+En el manejo de los eventos de la interfaz se utilizan funciones en notaci\'on "controlador/funci\'on" y los argumentos se pasan como cadenas de datos o en formato JSON. Es interesante y a al vez complejo, porque no hay un conjunto de vistas como tal, sino que todo se gestiona desde un n\'ucleo.\\ 
+
+-otra taza de caf\'e por acabarse, la m\'usica est\'a buena pero la voy a cambiar por algo que me meta m\'as de lleno en mi zona- \\
+
+Al pasar datos desde la interfaz v\'ia JSON hacia los controladores, se especifica data:\{\}, type:\{\}, dataType:\{\}, url:\{\} donde\dots \\
+
+data es un vector de cadenas en formato "param1" : "valor1", \dots , "param-n" : "valor-n" \\
+
+type: es el m\'etodo de env\'io de datos GET o POST \\
+
+dataType: si se env\'ia en formato JSON se indica "json" \\
+
+url: es el controlador/funci\'on o archivo que recibir\'a los datos. \\
+
+Adem\'as, despu\'es de la funci\'on .get(), .post() y .ajax() se pueden agregar los llamados a los m\'etodos .done() y .fail() cuyos argumentos son funciones con par\'ametros data, status y jqXHR/error para el control de lo que ocurre con. \\
+
+Qu\'e bien! Con esto puedo trabajar desde ASPX y desde HTML-PHP, esto \'ultimo es lo que m\'as utilizo, ahora creo que lo que desarrolle en web me va a gustar a\'un m\'as porque me ser\'a m\'as familiar.\\
+
+A lo largo de un desarrollo de software en un equipo, algo que es grandioso es la conjugaci\'on de ideas. Surgen muchas y nuevos proyectos y herramientas, que, aunque pueden ya existir en la red, se convierten en fuente de aprendizaje (pedag\'ogicamente hablando, se ajusta al modelo construccionista)\\
+
+Como parte de la tecnolog\'ia, es importante saber utilizar la que es m\'as adecuada al momento. Por qu\'e crees que aunque usamos PC y laptops y tienen herramientas para tomar notas a\'un seguimos usando libretas y pizarrones? Que la primeras poco a poco tienden a desaparecer y se sustituyen por herramientas de software con interfaces m\'as naturales, como por ejemplo: Microsoft OneNote y Windows Journal que pueden ser usados con tabletas digitales, para los pizarrones (bastante pr\'acticos) las notas se capturan con c\'amaras (casi cualquiera con un celular dispone de una, aunque sea de menor resoluci\'on que las de hoy d\'ia, y para estos casos se pueden tomar tantas fotos como se necesiten y se descargan)\\
+
+-Bueno, lleg\'o la hora de ir a comer, algo muy necesario para un programador, ya que el cerebro necesita alimento, y aunque no se perciba, es desgaste. Y luego a seguir estudiando. C\'omo mejorar en SQL, c\'omo optimizar c\'odigo en C\# mientras escucho m\'usica de Mozart.\\
+
+\chapter{Sobre C\#}
+
+Siempre que se dise\~na una clase que implementa objetos de tipo iDisposable, como las conexiones a bases de datos y las conexiones de red, es importante utilizarlos "sabiamente", i.e., si no se requiere que est\'en presentes todo el tiempo, se puede hacer uso de la directiva using para instanciar los objetos solo durante el tiempo necesario y al finalizar el bloque los recursos utilizados por estos son liberados al momento, bajando el consumo de recursos del equipo. Considera esto si tu aplicaci\'on la ejecutan varias personas, como en una aplicaci\'on web \\
+\begin{verbatim}
+Using(obj = new clase(parámetros)){ // crea el objeto 
+//Instrucciones que usan el objeto 
+} // el objeto es liberado 
+\end{verbatim}
+
+Si el objeto ha de ser utilizado a todo lo largo de la vida del objeto, entonces hay que implementar la interfaz iDisposable que obliga a implementar m\'etodos para liberar los recursos destruyendo los objetos disposables. \\
+
+De igual forma, si varias clases van a tener un compartimiento base id\'entico y comparten caracter\'isticas (propiedades), es conveniente crear una clase principal que defina eso y de esta que se creen las dem\'as clases para que no codifiques tanto y para que si haces uso de objetos iDisposable, los trates adecuadamente desde un solo lugar\\
+
+\section{Windows forms}
+\section{XAML y windows Presentation Foundation}
+\chapter{sobre SQL Server}
+\section{Iniciando con SQL Server}
+\section{DDL}
+\section{DML}
+\section{Optimizaci\'on de las BB.DD.}
+\chapter{Sobre ASP.NET}
+\chapter{Aplicaci\'on de la matem\'atica y otras cosas}
+\end{document}

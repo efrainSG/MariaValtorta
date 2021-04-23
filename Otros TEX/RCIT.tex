@@ -1,0 +1,188 @@
+\documentclass[12pt,spanish,lettersize,twocolumn]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[dvips]{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+\usepackage{vmargin}
+\setmargins{2.5cm}
+{1.5cm}
+{16.5cm}
+{23.42cm}
+{10pt}
+{1cm}
+{0pt}
+{2cm}
+\title{\color{Maroon}Sistemas Din\'amicos}
+\author{Efra\'in Serna Gracia}
+\date{\color{gray}\today}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Resistencia}
+\begin{eqnarray}
+\nonumber R=\rho\frac{l}{S}\\
+\nonumber R=\frac{V}{I}\\
+\nonumber u(t)=R\cdot i(t)\\
+\nonumber u(t)=V_0\cdot sin(\omega t+\beta)\\
+\nonumber i(t)=\frac{u(t)}{R}=I_0\cdot sin(\omega t+\beta)
+\end{eqnarray}
+
+\section{Capacitor}
+\begin{equation*}
+C=\frac{Q_1}{V_1-V_2}=\frac{Q_2}{V_2-V_1}
+\end{equation*}
+\begin{equation*}
+Q_2=C(V_2-V_1)=-C(V_1-V_2)
+\end{equation*}
+Energ\'ia almacenada
+\begin{eqnarray}
+\nonumber \epsilon=\int\limits_{q1}{q2}\frac{Q}{C}dq\Rightarrow\\
+\nonumber \epsilon=\frac{Q^2}{2C}(C(V_2-V_1))^2\Rightarrow\\
+\nonumber \epsilon=\frac{1}{2}C(V_2-V_1)^2
+\end{eqnarray}
+Carga
+\begin{equation*}
+V(t)=V_f(1-e^{-\frac{t}{RC}})
+\end{equation*}
+\begin{equation*}
+I(t)=\frac{V_f}{R}(e^{-\frac{t}{RC}})
+\end{equation*}
+Descarga
+\begin{equation*}
+V(t)=V_ie^{-\frac{t}{RC}}
+\end{equation*}
+\begin{equation*}
+I(t)=\frac{V_i}{R}(e^{-\frac{t}{RC}})
+\end{equation*}
+Corriente
+\begin{equation*}
+i_C=C\left[\frac{d}{dt}(V_1-V_2)\right]
+\end{equation*}
+En corriente alterna
+\begin{equation*}
+\mathbb{X}_C=\frac{1}{\omega C}
+\end{equation*}
+
+\section{Inductor}
+\begin{eqnarray}
+\nonumber \phi(t)=B(t)\cdot S\Rightarrow\\
+\nonumber \phi=\mu_0\cdot \frac{N}{l}\cdot i(t)\cdot S\Rightarrow\\
+\nonumber \phi=\mu_0\cdot\frac{NS}{l}\cdot i(t)
+\end{eqnarray}
+\begin{equation*}
+e(t)=_N\frac{d\phi(t)}{dt}=-\mu_0\cdot\frac{N^2S}{l}\cdot\frac{di(t)}{dt}
+\end{equation*}
+Energ\'ia almacenada
+\begin{equation*}
+u=\frac{1}{2}LI^2
+\end{equation*}
+En circuitos
+\begin{equation*}
+e(t)=-L\cdot\frac{di(t)}{dt}
+\end{equation*}
+Caida de tensi\'on en la bobina
+\begin{equation*}
+v_L(t)=v(t)=-e(t)=L\cdot\frac{di(t)}{dt}
+\end{equation*}
+En corriente alterna
+\begin{equation*}
+\mathbb{X}_L=j\omega L
+\end{equation*}
+
+\section{Transistores CBE}
+
+\subsection{Emisor com\'un}
+Ganancia
+\begin{equation*}
+G_v=-\frac{R_C}{R_E}
+\end{equation*}
+Voltaje del Emisor
+\begin{equation*}
+V_E=V_B-V_{BE}
+\end{equation*}
+Corriente del emisor
+\begin{equation*}
+I_E=\frac{V_E}{R_E}=\frac{V_B-V_{BE}}{R_E}
+\end{equation*}
+\begin{equation*}
+I_E=I_C+I_B = I_C+\frac{I_C}{\beta}=I_C\left(1+\frac{1}{\beta}\right)
+\end{equation*}
+Corriente del colector
+\begin{equation*}
+I_C=\frac{I_E}{1+\frac{1}{\beta}}
+\end{equation*}
+Tensi\'on o voltaje del Colector
+\begin{equation*}
+V_C=V_{CC}-I_CR_C=V_{CC}-R_C\left(\frac{I_E}{1+\frac{1}{\beta}}\right)
+\end{equation*}
+\begin{eqnarray}
+\nonumber V_C=V_{CC}-R_CI_E\Rightarrow\\
+\nonumber V_C=V_{CC}-R_C\left(\frac{V_B-V_{BE}}{R_E}\right)\Rightarrow\\
+\nonumber V_C=\left(V_{CC}+R_C\frac{V_{BE}}{R_{E}}\right)-R_C\frac{V_B}{R_E}
+\end{eqnarray}
+Ganancia en funci\'on del voltaje
+\begin{equation*}
+G_V=\frac{V_C}{V_B}=-\frac{R_C}{R_E}
+\end{equation*}
+Corriente de base o entrada
+\begin{equation*}
+I_B=\frac{I_E}{\beta}=\frac{V_E}{R_E\beta}=\frac{V_B-V_{BE}}{R_E\beta}
+\end{equation*}
+\begin{equation*}
+I_B=\frac{V_B}{R_E\beta}
+\end{equation*}
+Impedancia o resistencia de entrada
+\begin{equation*}
+Z_{in}=\frac{V_B}{I_B}=\frac{V_B}{\frac{V_B}{R_E\beta}}=R_E\beta
+\end{equation*}
+
+\subsection{Base com\'un}
+Ganancia
+\begin{equation*}
+G_V=\frac{R_C}{R_E}
+\end{equation*}
+
+\section{Amplificador Operacional}
+Dispositivo amplificador electr\'onico de alta ganancia acoplado en corriente continua con dos entradas y una salida. En esta configuraci\'on, la salida del dispositivo es cientos de miles de veces mayor que la diferencia de potencial entre sus entradas.
+\subsection{Seguidor de voltaje}
+\vspace{3cm}
+Es el circuito que proporciona a la salida la misma tensi\'on que a la entrada. Presenta la ventaja de que la impedancia de entrada es elevada, la de salida pr\'acticamente nula, y es \'util como un buffer, para eliminar efectos de carga o para adaptar impedancias (conectar un dispositivo con gran impedancia a otro con baja impedancia y viceversa) y realizar mediciones de tenci\'on con un sensor con una intensidad muy peque\~na que no afecte sensiblemente a la medici\'on.
+
+\subsection{Sumador inversor}
+\vspace{3cm}
+Aplicaci\'on en la que la salida es de polaridad opuesta a la suma de las se\~nales de entrada
+\begin{equation*}
+V_{out}=-R_f\left(\frac{V_1}{R_1}+\frac{V_2}{R_2}+\dots\frac{V_n}{R_n}\right)
+\end{equation*}
+
+\subsection{Derivador}
+\vspace{3cm}
+El circuito deriva a invierte la se\~nal de entrada, produci\'endose como salida:
+\begin{equation*}
+V_{out}=-RC\frac{dV_{in}}{dt}
+\end{equation*}
+Adem\'as, el circuito se usa como filtro, pero no es estable. Esto debido a que al amplificar las se\~nales de alta frecuencia, se amplifica mucho el ruido.
+
+\subsection{Integrador}
+\vspace{3cm}
+Este montaje integra e invierte la se\~nalde entrada produciendo como salida:
+\begin{equation*}
+V_{out}=\int\limits_{0}{t}-\frac{V_{in}}{RC}dt+V_{inicial}
+\end{equation*}
+El integrador no se usa en forma discreta, ya que cualquierse\~nalpeque\~na de corriente directa en la entrada puede ser acumulada en el condensador hasta saturarlo por completo. Este circuito se usa en forma combinada en sistemas retroalimentados que son modelos basados en variables de estado donde el integrador conserva una variable de estado en el voltaje de su condensador.
+\begin{equation*}
+\end{equation*}
+\begin{equation*}
+\end{equation*}
+\begin{equation*}
+\end{equation*}
+\begin{equation*}
+\end{equation*}
+\begin{equation*}
+\end{equation*}
+\end{document}

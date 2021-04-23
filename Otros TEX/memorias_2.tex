@@ -1,0 +1,258 @@
+\documentclass[12pt,spanish,lettersize]{book}
+\usepackage[dvips]{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[makeroom]{cancel}
+\usepackage[spanish]{babel}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{amssymb}
+\usepackage{chngcntr}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{graphics}
+\usepackage[hidelinks]{hyperref}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{vmargin}
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+\newtheorem{teo}{Teorema}[section]
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Efra\'in Serna Gracia}
+\lhead{Memorias de un desarrollador}
+\rfoot{\thepage}
+\setmargins
+{1.25in} %left
+{0.5in}  %top
+{6in}    %width / right
+{7.5in}  %height / bottom
+{1in}    %head height
+{0.5in}  %head sep
+{1in}    %foot height
+{0.5in}  %foot skip
+\begin{document}
+\begin{titlepage}
+\begin{center}
+MSG Fast Service\\
+\vspace*{0.15in}
+Memorias de un desarrollador \\
+\vspace*{0.6in}
+\vspace*{0.2in}
+\begin{Large}
+\textbf{Sobre el aprendizaje de lenguajes de programaci\'on y su aplicaci\'on durante el tiempo laboral} \\
+\end{Large}
+\vspace*{0.3in}
+\begin{large}
+Memorias de c\'omo aprend\'i e innov\'e con PHP, C\#, ASP.NET, SQL Server y otros\\
+\end{large}
+\vspace*{0.3in}
+\rule{80mm}{0.1mm}\\
+\vspace*{0.1in}
+\begin{large}
+Autor: \\
+L.C.C. Efra\'in Serna Gracia \\
+\vspace*{0.3in}
+Correo electr\'onico: efrain\_serna@hotmail.com\\
+
+Sitio web: https://facebook.com/MaverickXXI\\
+
+Twitter: https://twitter.com/Maverick\_XXI
+\end{large}
+\end{center}
+\end{titlepage}
+\tableofcontents
+%\maketitle
+
+\chapter{Introducción}
+A continuación, te presento mis memorias como desarrollador, mis experiencias, sentimientos y pensamientos que durante este tiempo he experimentado, de forma que puedan ayudarte el algún aspecto de tu vida. No es un escrito enfocado al desarrollo y programación exclusivamente, sin embargo, parte de su contenido está enfocado en el aprendizaje de la programación. Las partes enfocadas a tal fin están perfectamente diferenciadas y delimitadas, por lo que, si gustas, puedes omitirlas para enfocarte en las vivencias.\\
+
+Soy sincero en lo que escribo, de otra forma no serviría de nada lo escrito más que como fantasía.\\
+
+Después de la exposición de cada proyecto o experiencia, describo por lenguajes lo que aprendí durante ese desarrollo y la forma en que fueron utilizados, de esta forma también puedes aprender sobre cada lenguaje que conozco. Hoy en día sigo estudiando nuevos lenguajes y frameworks, ya que todo en este ambiente cambia más rápido de lo que se ve a nivel de usuario.
+
+\chapter{2002-2004}
+
+\section{Proyecto de tesis: Análisis de sistemas de lematización}
+El último proyecto que realicé durante mi carrera fue un sistema de lematización donde comparaba dos técnicas para este proceso. El sistema lo desarrollé utilizando Delphi, tablas de Paradox y archivos de texto, además de utilizar estructuras de datos dinámicas. Fue un sistema que me dejó muy satisfecho. Debo decir que realizar un proceso de investigación permite aprender mucho más que el recibir el conocimiento en clases, ya que puedes contrastar la información desde diferentes puntos y comienzas a razonar la forma de interconectarla, incorporarla a lo que ya sabes y obtener tus propias conclusiones.\\
+
+Esta sensación de satisfacción aumenta cuando comienzas a plasmarla por escrito y vas viendo cómo tu documento crece y toma forma, el documento es la materialización de lo que vas aprendiendo (más crece, quiere decir que estás aprendiendo más). De esta forma te vuelves experto en tu tema, nadie mejor que tú lo conoce, nadie sabe lo que sabes desde tu perspectiva, por lo que exponerlo frente a un jurado ya no es cuestión de que examinen lo que sabes, sino que evalúan la forma en que te desenvuelves, en qué tan seguro estás de lo que dices y en la forma en que te defiendes y defiendes tu punto de vista. Ya no son profesores que saben más que tú, son colegas profesionistas que están a la par de ti. Cuando realicé mi examen profesional, yo estaba tan emocionado que quería que toda la facultad me viera presentar mi trabajo, así de orgulloso estaba de mi trabajo. Presenté un coloquio donde hasta compañeros de maestría me preguntaron, desafortunadamente en día de mi examen ya no se pudo tener la misma concurrencia de asistentes. Ahí me di cuenta que, en lo personal, no me da miedo presentar lo que sé, me dan nervios de emoción. Estoy consciente de lo que sé y así me desenvuelvo.\\
+
+En este momento recuerdo que me preparé con todo a mi alcance para realizar la presentación: diapositivas en CD, en la laptop, acetatos y hasta plumones, por si algo fallaba, finalmente, si hasta esos me fallaban aún tenía mi propio conocimiento. Vuelvo a observar lo importante de prepararse con tiempo, digo que “vuelvo a”, porque a lo largo de la vida profesional es frecuente centrarse en lo que se hace día a día y se deja de lado la preparación, y no es sino hasta que se nos pide un reporte, informe o algo por el estilo que uno se pone a trabajar en ello. No es difícil trabajar pensando en reportar lo que se hace cada cierto tiempo, esto da mucha capacidad y ventaja sobre las circunstancias y deja en buena posición frente quienes están, jerárquicamente, arriba de nosotros.
+
+\subsection{Delphi: Jugando con estructuras de datos y formularios}
+
+\subsubsection{¿Qué son las estructuras de datos dinámicas?}
+Son estructuras basadas en apuntadores en lugar de utilizar arreglos, vectores y tablas o matrices.
+
+\subsubsection{Formularios de Windows y cómo persinalizarlos}
+Windows ha utilizado como base del diseño de sus ventanas algo que denomina \emph{Windows Forms}
+
+\section{Sistemas de biblioteca fiscal y generación de liquidaciones}
+Luego de mi examen profesional, mi primer proyecto, laboralmente hablando, consistió en una aplicación de bases de datos desarrollada también con Delphi para la administración de la biblioteca fiscal del departamento donde trabajaba, ahí aprendí a accesar y manipular datos en una base de datos con MS Access. Fue un proyecto interesante. Ya que fue un primer sistema que interactuaba con la suite de office, especialmente con un motor de bases de datos que no depende mucho de un servidor especializado.\\
+
+Después de eso hice otra más que ayudaba a los Técnicos a determinar y generar los documentos que conformaban las liquidaciones fiscales para los contribuyentes morosos. Esta vez la aplicación, también en Delphi, interactuaba con MS Word. Aplicaba cálculos a partir de los montos que ingresaban los técnicos, agregaban algunos datos y el documento se generaba. Fue muy Hard-Code porque no permitía la edición del contenido para los nuevos documentos. Aun así, agregaba tabla con los cálculos en los lugares destinados para ello.\\
+
+El objetivo era desarrollar un sistema que facilitara las actividades de toda el área fiscal, que estaba ubicada en un edificio independiente. El proyecto no se concretó por no pertenecer yo al área responsable de los desarrollos. Sin embargo, aprendí sobre dirección de pequeños equipos de trabajo, también a seguir un proceso para el análisis de requerimientos, este proceso lo estudié en la universidad, pero aplicarlo de manera profesional, no por una calificación, es diferente. Así que se puede comprobar que la escuela sí enseña y capacita, siempre que uno preste atención, lo que ahí se aprende puede ser aplicado, después de todo, por algo lo enseñan, porque antes ya se había utilizado. 
+
+\subsection{Delphi: Trabajando con Microsoft Office}
+Una de las características de una aplicación es el poder interactuar con otroso sistemas, en este caso con Microsoft office.
+
+\section{Sistemas veterinario y de ciber-café}
+Mi siguiente sistema para poner en funcionamiento fue un sistema de control para expedientes veterinarios, este sistema debía generar diferentes formatos y reportes, cartas, llevar control de los animalitos y mantener registro de sus cartillas. Lo desarrollé con una base de datos de Paradox usando también Delphi. No funcionó muy bien, pero me quedó de precedente para el desarrollo de futuras aplicaciones de bases de datos. Fue un desarrollo interesante, ya que mi cliente me llevó con otros médicos que tenían y aun sistema de ese tipo y que incluían asistentes, los mismos que en ese tiempo tenían la suite de Office. Se me hizo complicado utilizarlos, aunque fui aprendiendo (siempre se bueno ir más allá de los límites, ya que amplía tu zona de trabajo y no te estanca en la zona de confort) Aprendí a generar reportes utilizando Quick Reports para hacer los diferentes documentos requeridos, además pude crear un primer instalador que instalara todos los componentes necesarios para correr mi aplicación. Fue un proceso de aprendizaje bueno, aunque tengo esa tristeza de no haber podido hacer algo útil para mi cliente.\\
+
+El siguiente sistema que desarrollé fue uno para el control de tiempo de uso en computadoras de un ciber-café. Debía llevar ese control más una caja que registraba las ventas del lugar, emitía tickets y tenía una interfaz simpática. Aquí apliqué varias cosas que aprendí de los sistemas ya desarrollados: QUickReports, Diseño de formularios no convencionales, control de tiempos, bases de datos.\\
+
+Esto resultó en un proyecto bastante completo, más comercial, aunque intenté venderlo, no tuve la fortuna de que fuera comprado. Actualmente hay muchos sistemas de este tipo, unos son gratuitos y controlan bastante bien las actividades de este tipo de negocios. Bueno, creo que en algún momento puedo intentar de nuevo hacer mi sistema y promocionarlo. Finalmente, hay nuevas formas de trabajar las interfaces, los reportes e interactuar con otros sistemas y con el SO. Esta vez resultaría bien en un sistema cliente/servidor con varias cosas divertidas para jugar.
+
+\subsection{Delphi $+$ Bases de datos}
+
+\section{Primer trabajo en empresa desarrolladora}
+Posterior a ello, me incorporé a una empresa de desarrollo que utilizaba Lotus Domino para desarrollar una aplicación de bases de datos multiusuario para la captura de formatos oficiales: multas, actas, recibos y comprobantes de pago. Esta era una base de datos documental, cuya estructura me fue difícil de comprender. Era un enfoque muy diferente al que acostumbraba, por lo que no pude continuar (siendo sincero, me renunciaron).\\
+
+¿Qué aprendí de mi corta estancia? La existencia y manejo de otros tipos de bases de datos, que no a todos los equipos les gusta documentar sus códigos con comentarios que explican qué hacen o por qué se hace de cierta forma o qué quiere decir, aprendí que no a todos les gusta compartir sus herramientas o capacitar bien a sus colaboradores, más bien, que aprendan sobre la marcha, también aprendí que los integrantes de los equipos se deben apoyar entre sí facilitando códigos e ideas, solo hay que preguntar, aunque a veces parece uno que no entiende, pero preguntar hasta que quede claro es el truco. También aprendí lo que es la proactividad, ya que había logrado ponerme a aprender la forma de trabajo de la base de datos por mi cuenta, el problema fue que no se me facilitaron libros o ni siquiera una copia del software para aprenderlo, ahora comprendo que tenía que ver con el uso de licencias, aunque la verdad nunca tuve ganas de quedarme con esa copia, solo era para aprender. 
+
+\subsection{Bases de datos no estructuradas}
+
+\section{Trabajando como instructor}
+
+Luego de ello, comencé una etapa donde impartía capacitación para después retomar mi actividad como desarrollador.\\
+
+Durante esta etapa aprendí a dar clases, lo que es muy importante, ya que te permite desarrollar la habilidad de la comunicación. Es fácil hablar entre dos personas o un grupo y conversar de diferentes cosas, es un poquito más complicado (al inicio) hablar en público, pero esto se vuelve más simple si se tiene un guion (la diferencia entre una buena presentación y una mediana se da por la claridad del mensaje que expresas, así, si no te sabes tu guion y por ende, tienes que leerlo completito, la presentación se vuelve aburrida, mientras que si te lo sabes, aunque recurras a un apuntador o a las notas, puedes darles entonación para remarcar aquellas partes importantes y saber qué sigue, y tener una presentación más fluida, si además de eso sabes adaptar tu guion para incluir tu conocimiento y tienes la guía de la secuencia, entonces tu presentación irá mejor, será más natural y a la gente le puede gustar, ya que con más facilidad puedes enfatizar, regresar, avanzar y hacer referencias futuras para que presten más atención. Aún así, aprender a hablar en público para exponer temas es una cosa y aprender a conversar con el público es otra. Debes aprender a tener y mantener el dominio del tema y el foco de atención, pero no debes dejar que te intimide la cantidad de personas.\\
+
+Durante esta etapa aprendí a dar clases de ofimática (Windows, Word, Excel, PowerPoint, Access), de programación (Access, Flash! y HTML) y de software de diseño gráfico (CorelDRAW, FireWorks, Dreamweaver), aprendí a dar clases de desarrollo personal (que me sirvió más a mí de lo que esperaba).\\
+
+Algunas experiencias adicionales fueron el cambio en la mentalidad que buscaban darle a los estudiantes, ya que no se limitaban solo a las clases de computación, sino también a hacerlos crecer, ahí aprendí a ver películas con un enfoque analítico a fin de obtener mensajes y moralejas aplicables a la vida diaria, también a leer libros y analizarlos de la misma manera, con lo que se puede aprender mucho y mejorar la calidad de vida, siempre y cuando uno ponga en práctica los consejos ahí escritos (que no son nuevos, pero muchas veces los olvidamos).\\
+\subsection{Microsoft Word}
+\subsection{Microsoft Excel}
+\subsection{Microsoft Access}
+\subsection{Microsoft Power Point}
+\subsection{Flash! + ActionScript}
+\chapter{2005-2006}
+\section{Segundo trabajo como desarrollador}
+
+Después de trabajar para la academia, me incorporé al mundo del desarrollo de software nuevamente, esta vez colaboré en un equipo de desarrollo de gran exigencia, el cliente era una empresa trasnacional, de las más grandes de América Latina, su sistema estaba basado en un desarrollo con Delphi como entorno de programación y Oracle como motor de bases de datos, ambos siempre han tenido muy alta compatibilidad (no por nada Delphi significa "Delfos", nombre de un famoso oráculo griego, "Oracle" en inglés), así que era un desarrollo muy estable.\\
+
+El sistema seguía una arquitectura muy bien definida y los objetos que se utilizaban permitían un rápido diseño tomando información de la base de datos para su diseño (ahora comprendo la forma en que funcionaba y yo he construido clases y bibliotecas propias partiendo de esa idea, así como el llenado de controles, en cuanto a los datos que han de mostrar) pero como ya tenía algo de tiempo sin desarrollar para empresas, diré que “me oxidé”, por lo que mi experiencia en la estancia dentro del proyecto y la empresa no fueron de lo más gratificante, lo que sí resulto así fue el nivel que había adquirido y las capacidades que desarrollé, ya que teniendo dominio de Delphi, tuve que aprender mySQL (un motor de bases de datos con versiones gratuitas y que sigue el estándar ANSI de SQL), el cual dominé al nivel exigido en solo dos días, superando el nivel que tenía de conocimiento en Delphi (No es lo mismo tener conocimiento que experiencia, ya que el conocer es indicativo de cuánto sabes de algo, mientras que la experiencia es indicativo de qué tan bien aplicas lo que ya sabes en diferentes situaciones).\\
+
+Lo que aprendí de mySQL en ese breve tiempo fue la creación de diferentes tipos de consultas: Inserción, selección, eliminación, actualización, subconsultas y vistas, a crear todo desde comandos y no usar interfaces gráficas, de tal forma que aún prefiero eso a los entornos visuales, ya que en mi mente logro visualizar los datos y relaciones, y muchas veces estas relaciones son tan complejas que un entorno visual no puede representar.\\
+
+Aún así, lo que quiero destacar es la importancia de mantener en buena forma las habilidades que tengamos para así evitar esos tiempos de "oxidación" y falta de práctica. Es necesario buscar cosas qué hacer y dónde aplicar nuestros conocimientos.\\
+\subsection{MySQL}
+\section{Tercer trabajo desarrollando}
+
+Después de eso, el proyecto al que migré fue desarrollado con Visual Studio .NET y SQL Server. Ahí aproveché lo que aprendí en el último proyecto para el desarrollo de la base de datos, y aprendí Visual Studio aplicando lo que ya sabía de programación dinámica con Delphi.\\
+
+El desarrollo del sistema no siguió una arquitectura como tal, pese a que se deseaba utilizar la metodología RUP, sin embargo, fue algo bueno, ya que fue de tamaño considerable realizado por 6 programadores, prácticamente noveles en el desarrollo de sistemas. No utilizamos sistemas de versionado, ni herramientas de ese tipo, fue muy “a la antigüita” donde desarrollamos los archivos DLL y los compartíamos con los compañeros para que los descargaran y los integraran a sus proyectos. Además, los reportes los construíamos con Crystal Reports (yo no lo manejaba en ese entonces), sin embargo aprendí a utilizarlo, y esto me serviría para futuros proyectos, y también interactuamos con Excel para importar/exportar datos. Con Word trabajábamos la exportación de información. Todo esto lo fui trayendo de mis experiencias anteriores, ya que donde trabajábamos no teníamos conexión a internet, así que era necesario tener el conocimiento y para lo que faltara, tener la capacidad de investigar y aprender fuera del tiempo de oficina (en casa).\\
+
+Durante el proyecto aprendí a programar con Visual Basic, pero pronto me aburrí del lenguaje y comencé a crear mis códigos y DLLs con C\#, muy a pesar de que el líder me pidió los migrara a VBasic. Además de mi aburrimiento por el lenguaje, C\# me resultó muy atractivo, ya que se parece mucho a lenguajes como C/C++, Java, PHP, que son muy dinámicos, pero también tiene la característica de ser fuertemente tipado, tal como Pascal lo es. Su gramática era mucho más clara de seguir y entender, su potencia ha sido mayor, aún cuando los lenguajes de VisualStudio comparten el núcleo y la plataforma base. \\
+\subsection{El lenguaje C\# en Visual Studio}
+\subsection{Crystal Reports}
+\section{Dentro del tercer trabajo: Intranet}
+Durante el tiempo que trabajé en el proyecto, el líder nos solicitó una base de conocimiento para apoyo y documentación del sistema. Nuevamente mostré iniciativa al comenzar esta base por mi cuenta implementando un servidor web Apache en mi equipo y con una estructura de XML con PHP para el manejo de la información (no quise involucrarme más con Apache, PHP y mySQL, ya que no disponía de mucho tiempo libre en el trabajo para implementar toda la estructura.\\
+
+Aun así, esto me permitió aprender a implementar este tipo de servidores y lenguaje, además de conocer el manejo de XML y su lenguaje de modelado de datos para un formato más amigable.\\
+
+De entre las cosas que aprendí implementando el servidor web de intranet fueron conceptos básicos, aprendí lo que refiere a lenguajes de definición y de modelado, aprendí a jerarquizar información para representar datos en XML y sobre servidores virtuales, varias cosas interesantes. Ese es el principal premio de la iniciativa en el estudio: aprender c osas nuevas y que al recapitular pueden ser bastantes más de las que crees mientras transitas el camino de ser autodidacta.\\
+\subsection{Servidor Apache}
+\subsection{HTML y CSS}
+\subsection{Iniciando con PHP}
+\subsubsection{XML: Definición y modelado de datos}
+\subsection{Proyecto independiente a distancia}
+
+De igual forma, durante este proyecto, como tenía la oportunidad de trabajar por las noches, al estar soltero, comencé a dar apoyo a una amiga para el desarrollo de un sistema basado en Delphi, este proyecto lo realizábamos por las noches y usábamos Interbase/Firebird como motor de base de datos, este motor era más robusto que Paradox, además de implementar SQL. También utilizamos QuickReports para la generación de reportes, modificamos el diseño de la interfaz de los reportes y tratamos de hacerlo muy personalizado.\\
+
+Fue una experiencia muy interesante, hubo muchas cosas ahí que en seguida platicaré.\\
+
+La primera fue el inicio de mi blog. Ahí aprendí a dar formatos, a trabajar con CSS y XML mejor de lo que ya lo hacía, entendí un poco la arquitectura de las publicaciones. Se volvió una actividad interesante, ya que publiqué cosas relacionadas con la informática y otras no tanto, se volvió una forma de expresar lo que pienso en un momento determinado, posteriormente ese blog sirvió para mi maestría, pero el asunto de publicar constantemente no se me daba, por lo que las publicaciones se hicieron cada vez más esporádicas. Actualmente estoy retomando mi blog para publicar todo mi conocimiento por partes, de forma más organizada para que sea útil a la gente.\\
+
+La segunda fue la costumbre de largas jornadas de programación para realizar un proyecto a distancia (proceso de programado, compilado, enviado de códigos y recepción de cambios). Es interesante que muchos programadores encontramos divertido y productivo realizar codificación nocturna, es un tiempo donde las ideas nos fluyen más seguido, no tenemos la misma cantidad de distractores que en el día (Todas aquellas actividades que requieren de nuestra atención).Te acostumbras al ritmo y por ejemplo: 09:00 – 18:00 trabajas, de 19:00 – 22:00 cena y convivencia familiar, 22:00-02:00 jornada nocturna de programación, 02:00 – 07:00 dormir, 07:00-09:00 desayuno y desplazamiento al trabajo. Claro, no es una rutina para todos los días, porque el cuerpo necesita descanso  suficiente.\\
+
+Tercera, fue el compartir experiencias y vivencias con una persona amiga. Eso es algo invaluable, te permite crecer como persona y ayudas a otros a crecer.\\
+\subsection{Crystal Reports: Personalización}
+\section{Sistema de gestión escolar y de nómina}
+
+Después me cambié de empresa para comenzar a trabajar en otro proyecto, esta vez fue un sistema escolar, una actualización del sistema que ya tenían. El proyecto se desarrolló para un colegio en el Distrito Federal, la situación, según se me dijo, fue de emergencia, ya que tenían un atraso en las entregas y el programador había desertado, así que yo entré como relevo.\\
+
+Sobre la marcha se me explicó en qué consistía el sistema, tuve que revisar rápidamente el código escrito y entender las necesidades para el desarrollo del sistema, y se me dieron dos semanas para sacar el asunto más urgente. Aplicándome y haciendo rodar mi mente logré sacar el problema en semana y media. Después de eso, pasamos a la resolución de las facturas y su correcta emisión, ahí fue donde aprendí cómo se trabajan los reportes con RDLC, así como también el tipo de consultas requeridos en SQL para la recuperación de datos.\\
+
+Posteriormente me explicaron el funcionamiento del sistema original y algunos algoritmos para cálculo de nómina, mismos que yo tuve que traducir a SQL Server y C\#. De ahí aprendí también a crear consultas de SQL complejas desde un punto de vista matemático (teoría de conjuntos), lo que me dejó muy satisfecho, ya que es el mejor enfoque que se puede utilizar al trabajar con tablas, pero este enfoque, para que sea efectivo, debe ser practicado constantemente, ya que cada situación lleva a planteamientos diferentes, aunque con las mismas bases.\\
+
+Desafortunadamente comencé a tener problemas de columna, lo que me condujo a una cirugía y un considerable tiempo de recuperación. Pero aún de este inconveniente se puede aprender, y lo que aprendí fue: cuidar más mi salud, y es que, como programador, paso mucho tiempo sentado, por lo que se necesita una rutina de actividad física, mínimo 30 minutos diarios, mejor si es una hora u hora y media, además de estar en movimiento con frecuencia. Moverse unos 5 minutos cada 2 o 3 horas, cuidar lo que se come, ya que es fácil “golosinear” y comer pan, lo que aumenta el peso, además de que solemos tener malos hábitos de movimiento: mala postura al caminar, sentarse, acostarse. Pero no todo está perdido, ya que aprendí a llevar mi cuerpo un poco más lejos de sus límites (muchas veces esos límites están en nuestras mentes) para obtener una rápida recuperación, así que tan pronto se me permitió levantarme, comencé a ejercitarme: terapia de rehabilitación y fortalecimiento de piernas, posteriormente ejercicio para mi espalda y luego natación. De tal fortuna ha sido mi recuperación, que, si no me veo en la necesidad de decirle a la gente que tengo cirugía de columna, no me lo creerían.\\
+\subsection{T-SQL: Consultas complejas}
+\subsection{Reporteando con RDLC}
+\chapter{2007-2008}
+
+\section{Primer proyecto con ASP.NET}
+
+Cuando me recuperé, me incorporé a un equipo de programadores para una empresa, la cual me envió a otra empresa (outsourcing) para el desarrollo de una aplicación web con ASP.NET, fue un tiempo donde aprendí un poco sobre ASP y HTML, además de que comencé a trabajar más con PHP y mySQL para desarrollar sistemas web (prefiero enormemente trabajar con PHP-mySQL que con ASP-SQL Server).\\
+
+Cosas positivas de este proyecto fueron: 
+\begin{itemize}
+\item La organización del equipo con un arquitecto, administrador de base de datos y desarrolladores, además del líder del proyecto. Cada uno tenía su rol de trabajo bien definido, cada uno trataba una sola sección, por lo que era bastante práctico el desarrollo, además, todo lo que necesitaba realizarse en la base de datos lo realizaba una persona, ella decidía qué y cómo se hacía cada cosa en la base de datos. 
+\item Capacitación para el desarrollo. Lo cual es una gran ventaja, y hasta ese momento, en tres empresas me ofrecieron esa capacitación para lograr mejores desarrollos, en una me capacitaron en el uso de sus herramientas, mientras que en las otras fue en el uso del lenguaje. Esto es algo que dice mucho de una empresa y de quien la dirige: el interés porque su equipo de trabajo se mantenga a la vanguardia y capacitado para dar mejores resultados, lo que hace que uno quiera pertenecer a esa empresa, mientras que una empresa donde no se valora ese aspecto es más bien cuestión de fuerza de voluntad o necesidad lo que motiva a permanecer. 
+\item Hospedaje para el equipo de trabajo. Ya que quienes formábamos el equipo de trabajo éramos de diferentes ciudades, necesitábamos dónde hospedarnos y rentar habitaciones resultaba en un gasto, y teniendo la empresa la oportunidad de ofrecernos hospedaje, haciendo así, era más cómodo, menos gastos y más comodidad y tranquilidad, lo que hacía que estuviéramos más contentos. 
+\item Arquitectura de software bien definida. Era una arquitectura de tres capas bien definida, donde la capa más profunda era de modelos, la que se encargaba de hacer la comunicación con la base de datos, la segunda se encargaba de formatear los datos y acomodarlos en objetos que relacionaban con la presentación de la información, la tercera capa era la que se formaba por la interfaz con el usuario, esto permitía cambiar apariencia e incluso cambiar de web a aplicación sin tener que alterar el resto del proyecto. Siempre es bueno aprender sobre arquitectura de software, ya que son formas estructuradas de facilitar el desarrollo de sistemas. 
+\item Jornada flexible de trabajo. Esto es particularmente funcional cuando se presentan proyectos con equipos como en el que participé, ya que cada integrante tiene asignada una tarea y debe cumplirla en un tempo estipulado, y el horario en que ha de realizarse no es particularmente específico (por ejemplo, no hay dispositivos de registro de entrada/salida de personal, solo se debe asistir a la oficina en el tiempo que ésta esté abierta o si se tiene facilidad de ingresar y salir a cualquier hora). Además de que se suele cobrar por horas invertidas de trabajo (honorarios) y no por nómina y horarios de trabajo. 
+\end{itemize}
+\subsection{Comenzando con ASP.NET}
+\section{Primer Proyecto con SQL+LinQ}
+Luego de separarme del grupo, regresé a la empresa que originalmente me contrató y comencé a trabajar con VStudio, SQL Server y LinQ para el desarrollo de aplicaciones de tres capas. Debo decir que LinQ es una tecnología muy efectiva para este tipo de desarrollos, ya que por sí mismo implementa la inteligencia para el control de los datos mediante modelos que mantienen las relaciones entre los registros y los tratan como objetos, algo que se aproxima bastante a las Bases de Datos Orientadas a Objetos,  esto hace más transparente para los programadores el manejo de los datos en las BBDD.\\
+
+En este equipo desarrollé un sistema para una empresa, este sistema gestionaba los contratos y peticiones de soporte para los clientes de nuestro cliente. Aprendí lo importante de desarrollar para explotar los recursos del cliente y no a hacer aplicaciones que obliguen a los clientes a mejorar sus equipos (claro que, de ser necesario, solicito hagan ese proceso), también mejoré mi forma de normalizar las bases de datos.\\
+\subsection{LinQ: Ventajas y desventajas}
+\section{Segundo proyecto con ASP.NET}
+
+El siguiente proyecto fue con ASP.NET, pero no logré acoplarme a la tecnología (aún hoy en día no estoy muy familiarizado), por lo que terminamos la relación laboral.\\
+
+Sin embargo, es una tecnología que debo aprender, puesto que conforme avanza el tiempo, las aplicaciones se orientan a el ambiente web.\\
+\subsection{ASP.NET + LinQ}
+\chapter{2008-2013}
+\section{Primer gran proyecto propio}
+
+De ahí comencé a trabajar más a fondo para una universidad particular y luego me incorporé como coordinador, ahí aprendí sobre redes, desarrollé una primera gran aplicación: el sistema de gestión escolar que aún hoy usan y que debo pronto re-estructurar.\\
+
+Este sistema lo desarrollé utilizando WPF, LinQ, SQL Server, Crystal Reports. Comencé a implementar servidores Linux y mejoré mis habilidades.\\
+\subsection{WPF}
+\subsection{Crystal Reports: reporteo dinámico}
+\subsection{SQL: Bases de datos normalizadas ¿Muy normalizadas?}
+\subsection{T-SQL: Desencadenadores y SSPP dinámicos}
+\section{Primer proyecto web dinámico}
+
+También mencionaré que un proyecto anterior realizado con PHP fue una plataforma de futbol virtual, ahí comencé a jugar con JavaScript, además de HTML, PHP y CSS.\\
+\subsection{PHP + JavaScript + CSS}
+\section{Segundo proyecto web: Sistema educativo}
+
+Durante mi estancia en la universidad completé mis estudios de maestría, y en mis ratos libres comencé a trabajar con un blog en el cual no he publicado nada desde hace 3 años, y ya es hora de retomarlo. Aprendí también cómo utilizar las tecnologías de la información para la educación, además, en la escuela implementé un servidor Moodle. Este tiempo fue muy productivo y provechoso, sin embargo, pronto comencé a sentirme estancado, mi error fue no aplicarme a aprender más y a ponerlo en práctica, ya que estaba entre clases, el laboratorio y el soporte a los equipos, así como el mantenimiento de la base de datos de mi propio sistema. Sin embargo, comencé a trabajar con cámaras de circuito cerrado de TV, por lo que, al ver que mi idea de un negocio se comenzaba a hacer realidad, me separé de la escuela, claro que terminó no siendo una buena idea, así que al poco me incorporé a otra escuela y luego a una empresa.\\
+\subsection{PHP + Estructuras de datos + matemática}
+\subsection{AJAX}
+\chapter{2014-2015}
+\section{Segundo trabajo como Administrador de TICs}
+
+Esta nueva etapa empresarial me permitió aprender nuevas tecnologías (para mí) y me dio la oportunidad de auto capacitarme, siempre con la idea de hacer que la empresa que me contratara gastara lo menos en mí (algo que no es siempre muy recomendable, es mejor en varias ocasiones, que la empresa invierta en ti capacitándote, entrenándote para que puedas realizar un buen trabajo en poco tiempo).\\
+
+Aprendí a gestionar servidores Windows, comunicaciones, a desarrollar planes de trabajo, aprendí otras técnicas de programación. Ahora uso esas cosas de forma más o menos regular, aunque me falta todavía.\\
+
+En este periodo no incrementé mis habilidades de desarrollador mucho, aunque sí aprendí unos cuantos truquillos, que por mi ritmo de trabajo y de vida, he estado bastante lento, debo admitirlo. Aprendí a instalar cableado estructurado, a reconfigurar firewalls, aprendí a administrar (levemente) un conmutador de teléfono, a llevar inventarios y mantenerlos actualizados, a utilizar CRM, ERP, integrarlos con otras bases de datos. Conocí la forma de organización en una empresa, (contrastando con el tiempo que estuve dando clases casi al inicio de mi vida profesional, en esa escuela se predicaba una organización jerárquica horizontal, algo que tiende más hacia un círculo, mientras que en las organizaciones en las que he trabajado últimamente ha sido más bien vertical; las mejores empresas tienen una combinación de ambas, una organización vertical muy bien definida y unos canales de comunicación y confianza horizontales).\\
+
+He descubierto que, aunque me gustan las bases de datos, no me gusta hacerme líos con los datos contenidos en las mismas, es decir, prefiero diseñarlas, programarlas, crear las vistas, procedimientos, recuperar datos, pero no me gusta importarlos, agregarlos, editarlos, ni acoplarlos a la estructura de la base, eso se me hace muy aburrido y prefiero pensar en crear una tecnología que me facilite eso o de plano delegarlo a otros.\\
+\subsection{Servicios web con PHP}
+\subsection{Relacionando BBDD}
+\chapter{2015-2016}
+\section{Nuevamente como catedrático}
+
+Luego de un tiempo en esta empresa donde observé un panorama diferente de las TIC, regresé a dar clases, esta vez a una escuela particular, ahí me di cuenta de lo mal que estamos en nivel educativo, ya que ese tipo de escuelas concentran gran cantidad de muchachos, pero se caracterizan por no ser muy constantes, más bien, flojos e indisciplinados, por lo que salen realmente deficientes, además son tantas las escuelas que se reparten los alumnos, son baratas y pagan poco a sus profesores, pero por el sistema educativo del estado, exigen mucho de los docentes, pero los materiales y herramientas que pueden proveer dejan mucho qué desear. Es un círculo vicioso que se tiene que romper, de otra forma será difícil mejorar en ese aspecto.\\
+\subsection{PHP + PDF}
+\section{Proceso de promoción de mis proyectos}
+
+En ese tiempo me enfoqué en promover mi propio sistema, cuestión complicada por la situación económica actual y porque no tengo facilidad para las ventas. (otra área que debo mejorar).\\
+
+\section{Cuarto trabajo como desarrollador}
+
+Finalmente me incorporé a otra empresa de desarrollo, aquí estoy aprendiendo un poco más, estoy aprendiendo jQuery y otra forma de organizar equipos de trabajo.
+\subsection{jQuery}
+\subsection{CSS dinámico}
+\subsection{Angular JS}
+\end{document}

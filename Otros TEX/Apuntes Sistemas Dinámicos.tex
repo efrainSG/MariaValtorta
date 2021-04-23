@@ -1,0 +1,717 @@
+\documentclass[12pt,spanish,lettersize]{report}
+\usepackage[dvips]{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage[makeroom]{cancel}
+\usepackage[spanish]{babel}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{amssymb}
+\usepackage{chngcntr}
+\usepackage{epstopdf}
+\usepackage{fancyhdr}
+\usepackage{graphics}
+\usepackage[hidelinks]{hyperref}
+\usepackage{mathrsfs}
+\usepackage{multicol}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{vmargin}
+\counterwithin*{equation}{section}
+\counterwithin*{equation}{subsection}
+\newtheorem{teo}{Teorema}[section]
+\title{\color{Maroon}Apuntes reorganizados de Proped\'eutico MCEA}
+\author{Efra\'in Serna Gracia}
+\date{\color{gray}\today}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Efra\'in Serna Gracia}
+\lhead{Apuntes reorganizados}
+\rfoot{\thepage}
+\setmargins
+{1.25in} %left
+{0.5in}  %top
+{6in}    %width / right
+{7.5in}  %height / bottom
+{1in}    %head height
+{0.5in}  %head sep
+{1in}    %foot height
+{0.5in}  %foot skip
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter{Sistemas Din\'amicos}
+\section{Introducci\'on a la representaci\'on en variables de estado}
+\subsection{Definiciones}
+Un sistema con m\'ultiples entradas y salidas se puede representar como un \emph{Modelo en Variables de Estado} conformado por un conjunto de ecuaciones diferenciales para las entradas y otro conjunto para las salidas del sistema, el cual debe ser lineal.
+\subsubsection{Definiciones adicionales}
+\begin{description}
+\item[Variables de estado.] Son un conjunto m\'inimo de variables que determinan el estado de un sistema en un momento cualquiera. Estas pueden ser de \emph{entrada, salida} o \emph{Estado}.
+\item[El estado de un sistema] est\'a formado por el conjunto m\'inimo de variables de estado, tales que su conocimiento en $t=t_0$ y en $t\ge t_0$ para las entradas, determinan el comportamiento del sistema en cualquier $t \ge t_0$.\\
+El conjunto de variables de estado son las componentes del \emph{vector de estado} para cualquier $t \ge t_0$ e identifica un\'ivocamente el estado del sistema.
+\item[El espacio de estados] es el conjunto de estados del sistema, y se forma por los ejes que corresponden a las variables de estado del vector de estado, y donde un estado particular se puede representar como un punto en ese espacio.
+\end{description}
+\subsection{Trabajo con ecuaciones diferenciales}
+Esto es particularmente \'util cuando es dif\'icil representar el sistema como una funci\'on de transferencia con una entrada y una salida.
+Las ecuaciones del sistema toman la siguiente forma para las entradas y las salidas, respectivamente
+\begin{eqnarray}
+\dot{x}_i(t)&=&f_i(x_1,x_2,\dots,x_n,u_1,u_2,\dots,u_n,t)\\
+y_j(t)&=&f_j(x_1,x_2,\dots,x_n,u_1,u_2,\dots,u_n,t) \end{eqnarray}
+$i=1,\dots,n; j=1,\dots,m$\\
+Por ejemplo, sea el sistema siguiente
+\begin{eqnarray}
+\nonumber\left.
+\begin{array}{ccc}
+y'_1(t) & = & -y_2(t)\\
+y'_2(t) & = & y_1(t)
+\end{array}
+\right\}\\
+\nonumber y''_1(t) = -y'_2(t)&=&-y_1(t)\Rightarrow\\
+\nonumber y''_1(t) - y_1(t)&=&0
+\end{eqnarray}
+Definimos un conjunto fundamental de soluciones
+\begin{equation}
+\{y_{1_1}(t), y_{1_2}(t)\}
+\end{equation}
+Entonces
+\begin{eqnarray}
+\nonumber y(t)&=&e^{rt}\\
+\nonumber y'(t)&=&re^{rt}\\
+\nonumber y''(t)&=&r^2e^{rt}\Rightarrow\\
+\nonumber y''(t)-y(t)&=&r^2e^{rt}-e^{rt}=0\\
+\nonumber (r^2-1)e^{rt}&=&0\Rightarrow\\
+\nonumber r^2-1&=&0\\
+\nonumber r^2-i^2&=&(r+i)(r-i) = 0\Rightarrow\\
+\nonumber r_1=i&;&r_2 = -i\Rightarrow
+\end{eqnarray}
+Tenemos el sig. Conjunto de soluciones
+\begin{eqnarray}
+\nonumber \{\tilde{y_{1_1}}(t)=e^{r_1t}&,&\tilde{y_{1_2}}(t) = e^{r_2t}\}\Rightarrow\\
+\nonumber \{e^{it}&,&e^{-it}\}\Rightarrow\\
+\nonumber \tilde{y_1}(t)&=&c_1e^{it}+c_2e^{-it}\\
+\nonumber \textnormal{Si } cos(t)+isen(t)&=&e^{it}:\mathbb{R}\rightarrow\mathbb{R}\Rightarrow\\
+\nonumber\textnormal{Sea }\tilde{y_1}(t)=e^{it}&=&cos(t)+isen(t)
+\end{eqnarray}
+\begin{eqnarray}
+\nonumber \left.
+\begin{array}{ccc}
+Re[e^{it}]&=&cos(t)\\
+Im[e^{it}]&=&sen(t)
+\end{array}
+\right\}&\Rightarrow\\
+\nonumber \left.
+\begin{array}{ccc}
+y_{1_1}(t)&=&cos(t)\\
+y_{1_2}(t)&=&sen(t)
+\end{array}
+\right\}\\
+\nonumber \left.
+\begin{array}{ccc}
+y_{1_1}(t)&=&cos(t)\\
+y'_{1_1}(t)&=&-sen(t)\\
+y''_{1_1}(t)&=&-cos(t)\\
+\end{array}
+\right\}&\Rightarrow&-cos(t)+cos(t)=0\\
+\nonumber \left.
+\begin{array}{ccc}
+y_{1_2}(t)&=&sen(t)\\
+y'_{1_2}(t)&=&cos(t)\\
+y''_{1_2}(t)&=&-sen(t)\\
+\end{array}
+\right\}&\Rightarrow&=sen(t)-sen(t)=0\Rightarrow\\
+\{y_1(t)=cos(t)&,&y_2(t)=sen(t)\}
+\end{eqnarray}
+
+\subsection{Soluci\'on de ecuaciones diferenciales con coeficientes constantes}
+Siendo $y'_1(t)=-y_2(t)$, entonces
+\begin{eqnarray}
+\nonumber y_2(t)&=&-y'_1(t)\\
+\nonumber y_2(t)&=&-(C_1cos(t)+C_2sen(t))'\\
+\nonumber y_2(t)&=&-(-C_1sen(t)+C_2cos(t))\\
+\nonumber y_2(t)&=&+C_1sen(t)+C_2(-cos(t))\\
+\nonumber A=\left[
+\begin{array}{rr}
+0 & -1\\
+1 & 0
+\end{array}
+\right]&;&y(t)=\left[
+\begin{array}{c}
+y_1(t)\\
+y_2(t)
+\end{array}
+\right]\Rightarrow\\
+\nonumber y'(t)-Ay(t)&=&0\\
+\nonumber y(t)=Ue^{rt}&;&U=\left(
+\begin{array}{c}
+u_1\\
+u_2
+\end{array}
+\right)\Rightarrow\\
+\nonumber y'(t)=Ure^{rt}&\Rightarrow&Ur\cancel{e^{rt}}=Au\cancel{e^{rt}}\Rightarrow\\
+\nonumber rU&=&Au
+\end{eqnarray}
+Sabiendo esto, procedemos a determinar los valores propios
+\begin{eqnarray}
+\nonumber |A-\lambda Id| = 
+\left|\left[
+\begin{array}{cc}
+0 & -1\\
+1 & 0
+\end{array}
+\right]-\left[
+\begin{array}{cc}
+\lambda & 0\\
+0 & \lambda
+\end{array}
+\right]\right| = \left|
+\begin{array}{cc}
+-\lambda & -1\\
+1 & -\lambda
+\end{array}
+\right|\Rightarrow\\
+det\{A -\lambda Id\}=|\lambda^2+1|\Rightarrow \lambda_1=i; \lambda_2=-i
+\end{eqnarray}
+Para determinar los vectores propios
+\begin{eqnarray}
+\nonumber \lambda_1=i\Rightarrow(A-iId)U=0\\
+\nonumber \left(\begin{array}{cc}
+-i & -1\\
+1 & i
+\end{array}\right)\Rightarrow\left(\begin{array}{cc}
+-i & -1\\
+0 & 0
+\end{array}\right)\rightarrow\left(\begin{array}{cc}
+i & 1\\
+0 & 0
+\end{array}\right)\left(\begin{array}{c}
+u_1\\
+u_2
+\end{array}\right)=\left(\begin{array}{c}
+0\\
+0
+\end{array}\right)\\
+cu_1-u_2=0 \Rightarrow u=\left(\begin{array}{c}
+1\\
+-1
+\end{array}\right); u=\left(\begin{array}{c}
+u_1\\
+u_2
+\end{array}\right)
+\end{eqnarray}
+Luego tenemos
+\begin{eqnarray}
+\tilde{y}^{(1)}(t)=\left(\begin{array}{c}
+1\\
+-i
+\end{array}
+\right)e^t=\left(\begin{array}{c}
+1\\
+-i
+\end{array}
+\right)(cos(t)+isen(t))\\
+\nonumber \tilde{y}^{(1)}(t)=\left(\begin{array}{c}
+cos(t)\\
+-sen(t)
+\end{array}
+\right)+i\left(\begin{array}{c}
+-sen(t)\\
+cos(t)
+\end{array}
+\right)\\
+\left[\begin{array}{c}
+y_1(t)\\
+y_2(t)\end{array}\right]=y(t)=c1\left[\begin{array}{c}
+cos(t)\\
+sen(t)\end{array}\right]+c2\left[\begin{array}{c}
+sen(t)\\
+-cos(t)\end{array}\right]\\
+y_1(t)=c_1cos(t)+c_2sen(t)\\
+y_2(t)=c_1sen(t)+c_2(-cos(t))
+\end{eqnarray}
+\subsection{Representaci\'on matricial y forma de operaci\'on}
+En forma matricial se puede representar como
+\begin{equation}
+\begin{array}{rcl}
+\dot{x}&=&Ax+Bu\\
+y&=&Cx+Du
+\end{array}
+\end{equation}
+Donde $\dot{x}$ es el vector de estados en un momento dado, $A$ es la matr\'iz de estado, $B$ es la matr\'iz de entrada, $y$ es el vector de salida, $C$ es la matr\'iz de salida, $D$ es la matr\'is de trasnferencia directa.
+Por ejemplo:\\
+\begin{eqnarray}
+\left.
+\begin{array}{rcl}
+\dot{x_1}&=&x_2\\
+\dot{x_2}&=&-k_2x_1-k_1x_2+u_1+k_3u_2\\
+\dot{x_3}&=&-k_5x_2-k_4x_3+k_6u_1
+\end{array}
+\right\}\Rightarrow\\
+\left[
+\begin{array}{c}
+\dot{x_1}\\
+\dot{x_2}\\
+\dot{x_3}
+\end{array}
+\right]=\left[
+\begin{array}{ccc}
+0&1&0\\
+-k_2&-k_1&0\\
+0&-k_5&-k_4
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+x_1\\
+x_2\\
+x_3
+\end{array}
+\right]
++\left[
+\begin{array}{ccc}
+0&0&0\\
+1&k_3&0\\
+k_6&0&0
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+u_1\\
+u_2\\
+u_3
+\end{array}
+\right]
+\end{eqnarray}
+Para encontrar las soluciones, operamos la matr\'iz $A$ para encontrar los valres y vectores propios.
+\section{Transformada de Laplace}
+\section{Deducci\'on de modelos de estado}
+\section{Sistemas de 1 grado de libertad}
+Los grados de libertad son los par\'ametros necesarios para definir de forma un\'ivoca la configuraci\'on de un sstema. Es el n\'umero m\'inimo de variables necesarias para conocer el estado de un sistema.\\
+Uni sistema de un grado de libertad (S1GL) es aquel donde solo es posible un tipo de movimiento, i.e., la posici\'on del sistema en cualquier instante puede ser definida por una sola coordenada.
+\subsection{P\'endulo}
+\subsection{Masa-Resorte-Amortiguador}
+\begin{eqnarray}
+m\ddot{y}(t)+c\dot{y}(t)+ky(t)&=&u(t)\\
+\nonumber m=\frac{1}{2};\ c&=&\frac{1}{2};\ k=1;\\
+\nonumber u(t)&=&\frac{sen(\pi t)}{2}\Rightarrow\\
+\nonumber\frac{\ddot{y}(t)}{2}+\frac{\dot{y}(t)}{2}+y(t)&=&\frac{sen(\pi t)}{2}\Rightarrow\\
+\nonumber y(t)&=&y_c(t)+y_p(t)\Rightarrow\\
+\nonumber\textnormal{Tomando }\\
+\nonumber\ddot{y}(t)+\dot{y}(t)+2y(t)&=&0\Rightarrow\\
+\nonumber y(t)&=&e^{rt}\Rightarrow r^2+r+2=0\Rightarrow\\
+\nonumber r_{1,2}&=&\frac{-1\pm\sqrt{1-8}}{2}=\frac{-1\pm i\sqrt{7}}{2}\\
+\nonumber\tilde{y_1}(t)&=&{e}^{\frac{-1+i\sqrt{7}}{2}}=e^{\frac{-1}{2}t}e^{\frac{i\sqrt{7}}{2}t}\\
+\nonumber &=&e^{\frac{-1}{2}t}\left[cos\left(\frac{\sqrt{7}}{2}t\right)+isen\left(\frac{\sqrt{7}}{2}t\right)\right]\Rightarrow\\
+\nonumber y_C(t)&=&C_1e^{\frac{-1}{2}t}cos\left(\frac{\sqrt{7}}{2}t\right)+C_2e^{\frac{-1}{2}t}sen\left(\frac{\sqrt{7}}{2}t\right)\\
+\nonumber\left\{e^{\frac{-1}{2}t}cos\left(\frac{\sqrt{7}}{2}t\right)\right. &,&\left. e^{\frac{-1}{2}t}sen\left(\frac{\sqrt{7}}{2}t\right)\right\}\\
+\nonumber\textnormal{Siendo}\\
+\nonumber a\ddot{y}+b\dot{y}+cy&=&P_m(t)e^{\alpha t}sen(\mu t)\Rightarrow\\
+\nonumber P_0: \alpha=0, \mu=\pi\\
+\nonumber\textnormal{Se sabe que...}\\
+\nonumber y_p(t)=t^s[(A_0t^m+\dots+A_m)cos(\mu t)]&+&[(B_0t^m+\dots+B_m)sen(\mu t)]e^{\alpha t}\Rightarrow\\
+\nonumber y_p(t)&=&Acos(\pi t)+Bsen(\pi t)\Rightarrow\\
+\nonumber \dot{y}_p(t)&=&-Asen(\pi t)\pi+Bcos(\pi t)\pi\Rightarrow\\
+\nonumber \ddot{y}_p(t)&=&-Acos(\pi t)\pi^2-Bsen(\pi t)\pi^2\Rightarrow\\
+\end{eqnarray}
+\section{Sistemas de 2 grados de libertad}
+\subsection{Masas-Resortes-Amortiguadores}
+\subsection{P\'endulos}
+\section{An\'alisis de sistemas de control}
+\chapter{Control autom\'atico}
+\section{Definici\'on de funciones}
+\subsection{Funciones definidas positivas}
+Son funciones aplicadas en el control de robots y que describen la inyecci\'on de energ\'ia aplicada al root para lograr su movimiento desde un punto de inicio hasta un punto determinado.\\
+Una funci\'on positiva es continua en su argumento $x\in\mathbb{R}^n$ tal que $V:\mathbb{R}^n\rightarrow\mathbb{R}_+$ satisface:
+\begin{itemize}
+\item $V(x) = 0 \Leftrightarrow x=0\in\mathbb{R}^n$
+\item $V(x)>0 \forall x\ne 0\in\mathbb{R}^n$
+\item $V(x)\rightarrow\infty$, cuando $||x||\rightarrow\infty_+$ (es \emph{radialmente no acotada})
+\end{itemize}
+Si es positiva solo para una parte acotada de su argumento se le denomina \emph{funci\'on definida positiva local} y cumple lo siguiente:
+\begin{itemize}
+\item $V(x)=0 \Leftrightarrow x=0\in\mathbb{R}^n$
+\item $\exists \rho>0, \gamma>0:0<V(x)<\gamma \forall x\ne 0\textnormal{ y }||x||<\rho$
+\end{itemize}
+Una funci\'on $V:\mathbb{R}\rightarrow\mathbb{R}_+$ es definida positiva si existe una funci\'on $\Psi:\mathbb{R}^n\rightarrow\mathbb{R}_+$ tal que
+\begin{equation}
+0<V(x)\le\Psi(x), \forall x\in\mathbb{R}^n
+\end{equation}
+\subsubsection{Matriz definida positiva}
+La matriz $A\in\mathbb{R}^{n\times n}$ denotada por $A>0$ es una matriz cuadrada relevante y especial en Control rob\'otico. No significa ``\emph{A mayor que cero}'' ya que no tiene sentido en t\'erminos de \'algebra matricial.
+\begin{teo}[de Sylvester]
+La funci\'on $V(x)=x^TAx>0$ es definida positiva si y solo si $A\in\mathbb{R}^{n\times n}$ es definida positiva para cualquier $x\in\mathbb{R}^n$ Y debe cumplir:
+\begin{itemize}
+\item $A$ de la funci\'on cuadr\'atica $V(x)=x^TAx$ debe ser sim\'etrica ($A=A^T$)
+\item $a_{11}$ de $A\in\mathbb{R}^{n\times n}$, debe ser positivo
+\item Todos los determinantes menores deben ser positivos y el determinante de $|A|>0$
+\end{itemize}
+\end{teo}
+Las propiedades de la matriz positiva son:
+\begin{itemize}
+\item $A\in\mathbb{R}^{n\times n}>0$ es no singular, i.e., $\exists A^{-1}\in\mathbb{R}^{n\times n}$ tal que $A^{-1}>0$
+\item $\lambda_i\{A\}>0; \lambda_i\in\mathbb{R}; i=1, 2, \dots$
+\end{itemize}
+\subsection{Funciones semidefinidas positivas}
+Una funci\'on $V(x)$ es \emph{semidefinida positiva} cuando$V(x)=0$ si $x\ne 0$. La funci\'on $V(x)=x^TAx\ge 0$ lo es cuando $\in\mathbb{R}^{n\times n}$ es semidefinida positiva ($A\ge 0$) y debe satisfacer que:
+\begin{itemize}
+\item $A=A^T$
+\item $a_{11}$ de $A\in\mathbb{R}^{n\times n}$, debe ser positivo
+\item Alguno de los determinantes menores o el determinanta de $|A|$ es menor o igual a cero
+\end{itemize}
+\subsection{Funciones semidefinidas y definidas negativas}
+La funci\'on $V(x)$ es definida negativa ($V(x)=x^TAx<0$) si $-A\in\mathbb{R}^{n\times n}\ ,\ -A>0$\\
+La funci\'on $V(x)$ es semidefinida negativa ($V(x)=x^TAx\le 0$) si $-A\in\mathbb{R}^{n\times n}\ ,\ -A\ge 0$
+\begin{teo}[de Rayleigh-Ritz]
+\begin{equation}
+\lambda_A^{min}||x||^2\le x^TAx\le\lambda_A^{max}||x||^2\ \forall\ x\in\mathbb{R}^n
+\end{equation}
+\end{teo}
+\subsection{Matriz jacobiana}
+Sea la funci\'on diferenciable $f(x):\mathbb{R}^n\rightarrow\mathbb{R}^m,\ x\in\mathbb{R}^n$. Entonces sus derivadas parciales pueden acomodarse como un arreglo matricial llamado \emph{Matriz jacobiana} de la siguiente forma:
+\begin{eqnarray}
+J=&\frac{\partial f(x)}{\partial x}=&
+\left[
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{cccc}
+\frac{\partial f_1}{\partial x_1}&\frac{\partial f_1}{\partial x_2}&\dots&\frac{\partial f_1}{\partial x_n}\\
+\frac{\partial f_2}{\partial x_1}&\frac{\partial f_2}{\partial x_2}&\dots&\frac{\partial f_2}{\partial x_n}\\
+\vdots&\vdots&&\vdots\\
+\frac{\partial f_m}{\partial x_1}&\frac{\partial f_m}{\partial x_2}&\dots&\frac{\partial f_m}{\partial x_n}
+\end{array}\right]
+\end{eqnarray}
+Ejemplo:\\
+Determinar la matriz jacobiana de
+\begin{eqnarray}
+\nonumber f(x_1,x_2,x_3)&=&\left[
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{c}
+x_1^2+x_1x_3\\
+sen(x_3)x_2\\
+x_1^2x_2^2x_3^2
+\end{array}\right]\Rightarrow\\
+\nonumber J&=&\frac{\partial f(x_1,x_2,x_3)}{\partial x}\\
+\nonumber J&=&\left[
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{ccc}
+\frac{\partial(x_1^2+x_1x_3)}{\partial x_1}&\partial(\frac{x_1^2+x_1x_3)}{\partial x_2}&\frac{\partial(x_1^2+x_1x_3)}{\partial x_3}\\
+\frac{sen(x_3)x_2}{\partial x_1}&\frac{sen(x_3)x_2}{\partial x_2}&\frac{sen(x_3)x_2}{\partial x_3}\\
+\frac{x_1^2x_2^2x_3^2}{\partial x_1}&\frac{x_1^2x_2^2x_3^2}{\partial x_2}&\frac{x_1^2x_2^2x_3^2}{\partial x_3}\\
+\end{array}\right]\Rightarrow\\
+\nonumber J&=&\left[
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{ccc}
+2x_1+X_3&0&X_1\\
+0&sen(x_3)&cos(x_3)x_2\\
+2x_1x_2^2x_3^2&2x_1^2x_2x_3^2&2x_1^2x_2^2x_3\\
+\end{array}\right]
+\end{eqnarray}
+\subsection{Gradiente}
+Es un vector de derivadas parciales de primer orden de una funci\'on escalar. Se denota como $\nabla V(x):\mathbb{R}\rightarrow\mathbb{R}^n$ y se expresa como:
+\begin{equation}
+\nabla V(x)=\frac{\partial V(x)}{\partial x}=\left[
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{c}
+\frac{\partial V(x)}{\partial x_1}\\
+\frac{\partial V(x)}{\partial x_2}\\
+\vdots\\
+\frac{\partial V(x)}{\partial x_n}
+\end{array}\right]
+\end{equation}
+Algo interesante de observar es que la matriz jacobiana puede ser expresada como un gradiente de funciones de la siguiente manera:
+\begin{equation}
+J(x)=\left[
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{c}
+\nabla f_1(x)^T\\
+\nabla f_2(x)^T\\
+\vdots\\
+\nabla f_m(x)^T\\
+\end{array}\right]=\left[
+\renewcommand{\arraystretch}{1.5}
+\begin{array}{cccc}
+\frac{\partial f_1}{\partial x_1}&\frac{\partial f_1}{\partial x_2}&\dots&\frac{\partial f_1}{\partial x_n}\\
+\frac{\partial f_2}{\partial x_1}&\frac{\partial f_2}{\partial x_2}&\dots&\frac{\partial f_2}{\partial x_n}\\
+\vdots&\vdots&&\vdots\\
+\frac{\partial f_m}{\partial x_1}&\frac{\partial f_m}{\partial x_2}&\dots&\frac{\partial f_m}{\partial x_n}
+\end{array}\right]
+\end{equation}
+Ejemplo: Obtener el gradiente de la siguiente funci\'on
+\begin{eqnarray}
+\nonumber V(x_1,x_2)&=&x_1^2+2x_1x_2+x_2^2\Rightarrow\\
+\nonumber \nabla V(x)&=&\frac{\partial V(x)}{\partial x}\\
+\nonumber &=&\left[\renewcommand{\arraystretch}{1.5}
+\begin{array}{c}
+\frac{\partial(x_1^2+2x_1x_2+x_2^2)}{\partial x_1}\\
+\frac{\partial(x_1^2+2x_1x_2+x_2^2)}{\partial x_2}\\
+\end{array}\right]\\
+\nonumber &=&\left[\renewcommand{\arraystretch}{1.5}
+\begin{array}{c}
+2x_1+2x_2\\
+2x_1+2x_2\\
+\end{array}\right]\\
+\nonumber &=&2\left[\renewcommand{\arraystretch}{1.5}
+\begin{array}{cc}
+x_1&x_2\\
+x_1&x_2\\
+\end{array}\right]=2\left[\renewcommand{\arraystretch}{1.5}
+\begin{array}{cc}
+1&1\\
+1&1\\
+\end{array}\right]\left[\renewcommand{\arraystretch}{1.5}
+\begin{array}{c}
+x_1\\
+x_2\\
+\end{array}\right]
+\end{eqnarray}
+Considerando los vectores $x,\ y\ \in\mathbb{R}^2$, la matriz $A\in\mathbb{R}^{2\times 2}$ y sea la funci\'on $V(x,y)=x^TAy$ con $y=y(x)$, se debe encontrar el gradiente.
+\begin{eqnarray}
+\nonumber\nabla V(x,y)&=&\frac{\partial V(x,y)}{\partial x}\\
+\nonumber\frac{\partial V(x,y)}{\partial x}&=&\frac{\partial x^T}{\partial x}Ay+\frac{\partial y^T}{\partial x}A^Tx\\
+\nonumber\left[\begin{array}{c}
+\frac{\partial}{\partial x_1}(x_1+x_2)\\
+\frac{\partial}{\partial x_2}(x_1+x_2)\\
+\end{array}\right]&=&\left[\begin{array}{c}
+1+0\\
+0+1\\
+\end{array}\right]=\left[\begin{array}{cc}
+1&0\\
+0&1\\
+\end{array}\right]\\
+\nonumber\left[\begin{array}{c}
+\frac{\partial}{\partial x_1}(y_1(x_1)+y_2(x_1))\\
+\frac{\partial}{\partial x_2}(y_1(x_2)+y_2(x_2))\\
+\end{array}\right]&\Rightarrow&\\
+\nonumber\frac{\partial V(x,y)}{\partial x}&=&\left[\begin{array}{cc}
+1&0\\
+0&1\\
+\end{array}\right]\left[\begin{array}{cc}
+a_{11}&a_{12}\\
+a_{21}&a_{22}\\
+\end{array}\right]\left[\begin{array}{c}
+y_1\\
+y_2\\
+\end{array}\right]+\frac{\partial y^T}{\partial x}A^Tx
+\end{eqnarray}
+\subsection{Derivada temporal de una funci\'on de energ\'ia}
+Con relaci\'on a esta derivada o \emph{derivada con respecto al tiempo} de una funci\'on cuadr\'atica $V(x)=x^TAx$, \'esta se calcula coo sigue:
+\begin{eqnarray}
+\nonumber\frac{d}{dt}V(x)&=&\dot{V}(x)=\frac{d}{dt}\left[x^TAx\right]\\
+\nonumber&=&\frac{dx^T}{dt}Ax+x^T\frac{dA}{dt}x+x^TA\frac{dx}{dt}Ax\\
+\nonumber&=&\dot{x}^TAx+x^T\dot{A}x+x^TA\dot{x}\\
+&=&2x^TA\dot{x}+x^T\dot{A}x\ \textnormal{; Para $A$ sim\'etrica}\\
+\frac{d}{dt}V(x)&=&\dot{V}(x)=x^T[A+A^T]\dot{x}+x^T\dot{A}x\ \textnormal{; Para $A$ asim\'etrica}
+\end{eqnarray}
+\section{Estabilidad de Lyapunov}
+\subsection{Estabilidad en el sentido de Lyapunov}
+La teor\'ia de Lyapunov establece que para todo sistema din\'amico, lineal o no lineal, descrito con una ecuaci\'on diferencial de la forma
+\begin{equation}\label{SistemaLineal}
+\dot{x}=f(t,x) | x(0)\in\mathbb{R}^n \forall t\ge0
+\end{equation}
+Para toda condici\'on inicial $x(0)\in\mathbb{R}^n$ dentro del atractor\footnote{Conjunto de n\'umeros hacia los que tiende un sistema din\'amico cuando evoluciona en el tiempo}, si el sistema tiene un \emph{estado de equilibrioasint\'oticmente estable}, la energ\'ia acumulada por el sistema dentro del dominio del atractor cae al evolucionar  el tiempo hasta alcanzar un valor m\'inimo en su \emph{punto de equilibrio}.\\
+Para el sistema aut\'onomo
+\begin{equation}\label{SistemaAutonomo}
+\dot{x}=f(x) | x(0)\in\mathbb{R}^n \forall t\ge0
+\end{equation}
+se establece:
+\begin{itemize}
+\item El punto de equilibrio existe: $f(0)=0 \in\mathbb{R}^n$
+\item La funci\'on $f(x(t))$ es continua \emph{Lipschiz} en $\mathbb{R}^n$
+\item Existe la soluci\'on $x(t)\in\mathbb{R}^n$ es \'unica, continua en $t$ y diferenciable con respecto al tiempo.
+\item La funci\'on $f(x(t))$ es cntinua en $x$, continua para toda condici\'on inicial $x(0)\in\mathbb{R}^n$ y continuamente diferenciable en $t$
+\end{itemize}
+\begin{description}
+\item[Estabilidad]
+El origen de la ecuaci\'on [\ref{SistemaAutonomo}] es un \emph{punto de equilibrio estable} si para cada $t_0\ge 0$ y $\epsilon > 0$ se puede encontrar un n\'umero $\gamma(t_0,\epsilon) > 0$ tal que:
+\begin{equation}
+||x(0)-0||<\gamma(t_0,\epsilon)\Rightarrow ||x(t)-0||<\epsilon; \forall t\ge0
+\end{equation}
+Donde $x(t)$ es soluci\'on que inicia en $x(0)$ para $t_0$. Adem\'as $\gamma(t_0,\epsilon)\le\epsilon$ no es \'unica y requiere que $\exists \delta(t_0,\epsilon)>0$ para cada $\epsilon>0$ y no para alg\'un $\epsilon>0$.\\
+El punto de equilibrio $x=0$ es \emph{atractivo} si $\forall t_0\in\mathbb{R}_+, \exists \eta(t_0)>0$ tal que $||x_0|| <\eta(t_0)\Rightarrow x(t_0+t,t_0,x(0))\rightarrow 0$ como $t\rightarrow\infty$.
+\item[Estabilidad uniforme] El punto de equilibrio $x=0$ es llamado \emph{punto de equilibro estable uniforme} de [\ref{SistemaAutonomo}] si $\gamma=\gamma(\epsilon)$ no depende de $t_0$.
+\item[Estabilidad asint\'oticamente estable] El origen es un \emph{punto de equilibrio asint\'oticamente estable} de [\ref{SistemaLineal}] si
+\begin{itemize}
+\item El origen es estable
+\item El origen es atractivo, es decir, $\exists \gamma'>0$ tal que $||x(0)||<\gamma'\Rightarrow||x(t)||\rightarrow0$ cuando $t\rightarrow\infty$\\
+Adicionalmente, se trata de un \emph{punto de equilibrio asint\'oticamente global} si $\forall x(0)\int\mathbb{R}^n ||x(t)||\rightarrow 0$ cuando $t\rightarrow\infty$
+\end{itemize}
+\end{description}
+El origen es un \emph{punto de equilibrio exponencialmente estable global} de [\ref{SistemaLineal}] si existen constantes positivas $\alpha, \beta, \gamma$ tales que:
+\begin{equation}
+\textnormal{Si }||x(0)||<\gamma\Rightarrow||x(t)||<\alpha||x(0)||e^{-\beta t}, \forall t\ge 0, \forall x(0)\in\mathbb{R}^n
+\end{equation}
+El origen es un \emph{punto de equilibrio inestable} para [\ref{SistemaLineal}] si $\exists \epsilon>0$ para el que $\cancel{\exists}\gamma>0$ tal que:
+\begin{equation}
+||x(0)||<\gamma\Rightarrow||x(t)||<\epsilon ; \forall t\ge 0
+\end{equation}
+\subsection{Funci\'on candidata de Lyapunov}
+Una funci\'on $V(x)$ es \emph{candidata de Lyapunov} para el equilibrio $x=0\ \in\mathbb{R}^n$ de la ecuaci\'on $\dot{x}=f(x)$ si $V:\mathbb{R}_+\times\mathbb{R}^n\rightarrow\mathbb{R}_+$ si cumple:
+\begin{itemize}
+\item $V(x)$ es definida positiva.
+\item $\frac{\partial V(x)}{\partial x}$ es continua respecto a $x$.
+\item $\frac{dV(x)}{dt}$ existe y es continua respecto de $x$. Y est\'a definida como $\frac{\partial V(x)^T}{\partial x}x$.\\
+La derivada temporal para el sistema [\ref{SistemaLineal}] es una funci\'on definida negativa:
+\begin{equation}
+\dot{V(x)}<0\ \forall\ t\ge 0 \ \forall\ x\in\mathbb{R}^n
+\end{equation}
+\end{itemize}
+\chapter{Instrumentaci\'on}
+\section{Transistor}
+Es un elemento electr\'onico semiconductor. Est\'a dise\~nado para entregar una se\~nal de salida como respuesta a una se\~nal de entrada. Se puede utilizar como amplificador, conmutador, oscilador o rectificador. Se forma de tres partes:
+\begin{description}
+\item[Colector] que recolecta portadores de carga provenientes del circuito.
+\item[Emisor] que emite portadores de carga hacia el circuito con base en una corriente que recibe.
+\item[Base] que permite/impide el paso de los portadores desde el colector hacia el emisor.
+\end{description}
+En los transistores de uni\'on bipolar (BJT) se dan algunos elementos, cuyo valor es de importancia en el an\'alisis y dise\~no de circuitos:
+\begin{description}
+\item[Corriente de Colector] $I_C=\frac{I_E}{1+\frac{1}{\beta}}$
+\item[Corriente de Base] $I_B=\frac{V_B}{R_B}$
+\item[Corriente de Emisor] $I_E=\frac{V_B-V_{BE}}{R_E}=I_C+I_B=I_C+\frac{I_C}{\beta}=I_C(1+\frac{1}{\beta})$
+\item[Tensi\'on del Colector] Es la tensi\'on que sale del transistor. Se calcula como $V_C=V_{CC}-I_RR_C=V_{CC}-R_C\left(\frac{I_E}{1+\frac{1}{\beta}}\right)$
+\item[Tensi\'on del Emisor]
+\item[Tensi\'on entre Base-Emisor]: Dependiendo del material del transistor, puede ser de 0.7V (Silicio) y 0.3V (Germanio). Esto se considera cuando est\'an conectados como Emisor com\'un
+\item[Factor $\alpha$]Es el factor de ganancia logrado entre la corriente del Emisor y la del Colector en la regi\'on activa directa. Esto aplica cuando se configura en \emph{base com\'un}.
+\item[Factor $\beta$] Es el factor de ganancia logrado entre la corriente del Colector y la de la Base.
+\item[Ganancia] Se expresa como $G_V=\frac{V_C}{V_B}=\frac{R_C}{R_E}$
+\end{description}
+Los transitores tienen cuatro regiones que definen (gr\'aficamente visible) su coportamiento:
+\begin{description}
+\item[Corte] El transistor tiene las corrientes de colector y emisor iguales a cero, por lo que no existe una caida de voltaje, entonces, el voltaje entre Emisor y Colector es igual al voltaje que alimienta al circuito. Este comportamiento ocurre normalmente cuando la corriente de base es cero. Por tanto, el transistor se comporta como un circuito abierto.
+\item[Saturaci\'on] El transistor se comporta com un cable que cierra el circuito, ya que la corriente colector es muy similar a la de emisor, y ambas son muy pr\'oximas a la corriente m\'axima que puede atravesar al transistor. Se entra en esta regi\'on cuando la diferencia de potencial entre Colector y Emisor est\'a por debajo del umbral $V_{CE-sat}$
+\item[Activa directa] Cuando no est\'a en Saturaci\'on o Corte, el transistor puede ser usado como amplificador de se\~nal. Aqu\'i la corriente del Colector depende de la corriente de la base, de la $\beta$ (Ganancia de corriente) y de las resistencias conectadas en el Emisor y el Colector.
+\item[Activa inversa]
+\end{description}
+Adem\'as, su comportamiento var\'ia de acuerdo a la forma en que se conecte:
+\begin{description}
+\item[Emisor com\'un] La se\~nal se aplica a la base y se extrae del Colector. El emisor se conecta a tierra (masa). Se presenta ganancia de corriente y ganancia de tensi\'on
+\item[Base com\'un]La se\~nal se aplica al Emisor, mientras que la base se conecta a masa. Aqu\'i solo hay ganancia de tensi\'on
+\item[Colector com\'un]El Colector se conecta a la masa. Esta configuraci\'on es \'util para amplificar la corriente, pero no la tensi\'on
+\end{description}
+\section{Inductor}
+\section{Capacitor}
+\section{Operacionales Amplificadores}
+Para todas las configuraciones siguientes, excepto donde se indica, $V_{O-}=V_{O+}=0$ y $i_E=i_S$
+\subsection{Inversor}
+\begin{eqnarray}
+\left.\begin{array}{rcl}
+i_E&=&\frac{V_E-V_{O-}}{R_E}\\
+i_S&=&\frac{V_{O-}-V_S}{R_S}
+\end{array}\right\}\Rightarrow
+\nonumber\frac{V_E-V_{O-}}{R_E} = \frac{V_{O-}-V_S}{R_S}; V_{O-}=V_{O+}=0\Rightarrow\\
+\frac{V_E}{R_E} = \frac{-V_S}{R_S}\Rightarrow
+-\left(\frac{V_E}{R_E}\right)R_S = V_S;
+\frac{-V_S}{V_E} = \frac{R_S}{R_E}
+\end{eqnarray}
+\subsection{Sumador}
+\begin{eqnarray}
+\left.\begin{array}{rcl}
+i_E&=&\sum_{j=1}^ni_{E_j} = i_S\\ \\
+i_{E_j}&=&\frac{V_j-V_{O-}}{R_j}\\ \\
+i_S&=&\frac{V_{O-}-V_S}{R_S}
+\end{array}\right\}\Rightarrow
+\sum_{j=1}^n\frac{V_j-V_{O-}}{R_j} = \frac{V_{O-}-V_S}{R_S}\Rightarrow\\
+\sum_{j=1}^n\frac{V_j}{R_j} = \frac{-V_S}{R_S}\Rightarrow
+V_S=-R_S\sum_{j=1}^n\frac{V_j}{R_j}
+\end{eqnarray}
+\subsection{Comparador}
+Aqu\'i no $V_{O+}$ y $V_{O-}$ tienen 3 posibilidades: $V_{O+}>V_{O-}$, $V_{O+}<V_{O-}$, $V_{O+}=V_{O-}$ pero no es forzoso que sean cero, como se estableci\'o al inicio de la secci\'on. Adicionalmente, se utilizan las entradas de voltaje $V_-$ y $V_+$ del OpAmp.
+\begin{equation}
+V_S=\left\{
+\begin{array}{ccccc}
+V_{O-}&>&V_{O+}&\rightarrow&V_-\\
+V_{O-}&=&V_{O+}&\rightarrow&0\\
+V_{O-}&<&V_{O+}&\rightarrow&V_+\\
+\end{array}\right\}; |V_-|=|V_+|
+\end{equation}
+\subsection{Integrador}
+\begin{eqnarray}
+i_E&=&\frac{V_E-V_{O-}}{R_E}\\
+i_S&=&\frac{d}{dt}(V_{O-}-V_S)\Rightarrow\\
+\frac{V_E-V_{O-}}{R_E}&=&\frac{d}{dt}(V_{O-}-V_S)\Rightarrow\\
+\frac{V_E}{R_E}&=&\frac{d}{dt}(-V_S)\Rightarrow\\
+V_S&=&-\int_0^t\left(\frac{V_E}{R_E}\right)dt
+\end{eqnarray}
+\subsection{Derivativo}
+\begin{eqnarray}
+i_E&=&\frac{d}{dt}(V_E-V_{O-})\\
+i_S&=&\frac{V_{O-}-V_S}{R_S}\Rightarrow\\
+\nonumber\frac{d}{dt}(V_E-V_{O-})&=&\frac{V_{O-}-V_S}{R_S}\Rightarrow\\
+\frac{d}{dt}(V_E)&=&\frac{-V_S}{R_S}\Rightarrow\\
+V_S&=&-R_S\left(\frac{dV_E}{dt}\right)
+\end{eqnarray}
+\section{Filtros}
+Eliminan ciertas frecuencias presentes en una se\~nal dejando aquellas que sn de inter\'es. Los filtros pueden hacerse con componentes pasivos, como las resistencias, los capacitores e inductores, o con componentes activos, como los transistores, los Amplificadores Operacionales.
+\subsection{Pasa-bajas}
+Filtro compuesto por una resistencia y un capacitor en serie del que se toma la se\~nal de salida de la resistencia.\\
+\begin{equation}
+H(s)=\frac{\frac{1}{sC}}{\frac{1}{sC}+R}
+\end{equation}
+\begin{eqnarray}
+\nonumber H(s)&=&\frac{\frac{1}{\cancel{sC}}}{\frac{1+sCR}{\cancel{sC}}}=\frac{1}{1+sCR}\Rightarrow\\
+\nonumber H(j\omega)&=&\frac{1}{1+j\omega CR}=\left(\frac{1}{1+j\omega CR}\right)\left(\frac{1-j\omega CR}{1-j\omega CR}\right)\\
+\nonumber&=&\frac{1-j\omega CR}{1^2-(-1)(\omega CR)^2}=\frac{1-j\omega CR}{1+(\omega CR)^2}\Rightarrow\\
+\nonumber H(jw)&=&\frac{1}{1+(\omega CR)^2}-j\frac{\omega CR}{1+(\omega CR)^2}\\
+\nonumber|H(j\omega)|&=&\sqrt{Re[H(j\omega)]^2+Im[H(j\omega)]^2}\Rightarrow\\
+\nonumber|H(j\omega)|&=&\sqrt{\left[\frac{1}{1+(\omega CR)^2}\right]^2+\left[\frac{\omega CR}{1+(\omega CR)^2}\right]^2}\\
+\nonumber&=&\sqrt{\frac{\left[1+\omega CR\right]^2}{\left[1+(\omega CR)^2\right]}}=\frac{\sqrt{1+(\omega RC)^2}}{1+(\omega RC)^2}\\
+\nonumber&=&\frac{\cancel{\sqrt{1+(\omega RC)^2}}}{\cancel{\sqrt{1+(\omega RC)^2}}\sqrt{1+(\omega RC)^2}}\Rightarrow\\
+|H(j\omega)|&=&\frac{1}{\sqrt{1+(\omega RC)^2}}
+\end{eqnarray}
+\subsection{Pasa-altas}
+Filtro compuesto por un capacitor y una resistencia en serie del que se toma la se\~nal de salida del capacitor.
+\begin{eqnarray}
+H(s)&=&\frac{R}{\frac{1}{sC}+R}\Rightarrow\\
+\nonumber H(s)&=&\frac{\frac{R}{1}}{\frac{1+sCR}{sC}}=\frac{sCR}{1+sCR}\Rightarrow\\
+\nonumber H(j\omega)&=&\frac{j\omega CR}{1+j\omega CR}=\left(\frac{j\omega CR}{1+j\omega CR}\right)\left(\frac{1-j\omega CR}{1-j\omega CR}\right)\\
+\nonumber &=&\frac{j\omega CR+(\omega CR)^2}{1+(\omega RC)^2}=\frac{(\omega CR)^2}{1+(\omega RC)^2}+j\frac{\omega CR}{1+(\omega RC)^2}\Rightarrow\\
+\nonumber |H(jw)|&=&\sqrt{\left[\frac{(\omega CR)^2}{1+(\omega RC)^2}\right]^2+\left[\frac{\omega CR}{1+(\omega RC)^2}\right]^2}\\
+\nonumber |H(jw)|&=&\sqrt{\frac{(\omega CR)^4+(\omega CR)^2}{(1+(\omega RC)^2)^2}}=\sqrt{\frac{(\omega CR)^2((\omega CR)^2+1)}{(1+(\omega RC)^2)^2}}\\
+\nonumber |H(jw)|&=&(\omega CR)\frac{\sqrt{((\omega CR)^2+1)}}{1+(\omega RC)^2}=\frac{(\omega CR)\cancel{\sqrt{((\omega CR)^2+1)}}}{\cancel{\sqrt{1+(\omega RC)^2}}\sqrt{1+(\omega RC)^2}}\\
+|H(jw)|&=&\frac{(\omega CR)}{\sqrt{1+(\omega RC)^2}}
+\end{eqnarray}
+\subsection{Pasa-bandas}
+Filtro compuesto por un filtro pasa-bajas RC y un filtro pasa-altas RC acoplados mediante un OpAmp configurado como \emph{seguidor de voltaje} para evitar el efecto de carga entre ambos filtros al conectarlos directos.
+\begin{eqnarray}
+H(s)=\left(\frac{\frac{1}{sC}}{\frac{1}{sC}+R}\right)\left(\frac{R}{\frac{1}{sC}+R}\right)
+\end{eqnarray}
+\section{Lazo cerrado de control}
+Un \emph{lazo cerrado de control} es un conjunto de componentes que permiten ajustar determinado proceso con ayuda de una monitorizaci\'on constante y ajuste de los par\'ametros de entrada para obtener una salida lo m\'as cercana posible a la deseada. Esta variaci\'on depender\'a de una variable llamada \emph{error} ($\epsilon$).
+Un lazo cerrado de control recibe dos entradas, una desde una fuente y la otra desde la salida del sistema (normalmente un transductor que convierte el tipo de salida en una se\~nal el\'ectrica anal\'ogica), las compara (mediante una suma algebr\'aica), procesa el error mediante un controlador P/PI/PD/PID\footnote{Son iniciales del tipo de configuraci\'on del OpAmp utilizado: P=Proporcional, D=Derivativo, I=Integrador} (seg\'un se requiera), el resultado se suele invertir para realizar los ajustes en el proceso.
+\begin{teo}[Datos importantes en controladores P/PI/PD/PID]
+\begin{eqnarray}
+K_p&=&R_F(\frac{1}{R_P})\\
+K_D&=&R_F(C)\\
+K_I&=&\frac{1}{C_1R_F}
+\end{eqnarray}
+\end{teo}
+\section{Conversores D/A y A/D}
+Son circuitos dise\~nados para convertir una se\~nal anal\'ogica en una digital (A/D) o al reves (D/A). Existen varias formas de realizar esto, las revisadas son: D/A por resistencias \emph{ponderadas}, A/D de escalera y A/D flash.
+\subsection{Conceptos}
+\subsubsection{Cuantificaci\'on}
+\subsubsection{Resoluci\'on}
+Es la diferencia m\'inima entre cada par de niveles en la conversi\'on A/D. La resoluci\'on est\'a en funci\'on de los bits que componen la salida y la cantidad de incrementos que se pueden dar est\'a en funci\'on de la resoluci\'on mediante la siguiente ecuaci\'on:
+\begin{equation}
+\Delta V=2^n-1
+\end{equation}
+\subsection{D/A}
+EL conversor D/A revisado es el llamado \emph{de resistencias ponderadas}. Esto quiere decir que las resistencias siguien una determinada proporci\'on para determinar el valor de la se\~nal que se proporcionar\'a a la salida del circuito mediante una suma.\\
+Normalmente (por ser un sistema binario) se utiliza una resistencia de vaor $R$ y las siguientes van incrementando su nivel de resistencia por potencias de 2, es decir: $2R,4R,8R,16R,\dots$\\
+Ejemplo:\\
+Calcular un circuito D/A de 4 bits de entrada\\
+\begin{eqnarray}
+\nonumber i_\Sigma&=&\frac{V_I}{R}+\frac{V_I}{2R}+\frac{V_I}{4R}+\frac{V_I}{8R}=\frac{V_I}{R}\left(1+\frac{1}{2}+\frac{1}{4}+\frac{1}{8}\right)\\
+\nonumber&=&\frac{V_I}{R}\left(\frac{8+4+2+1}{8}\right)=\frac{V_I}{R}\left(\frac{15}{8}\right)\Rightarrow\\
+i_\Sigma&=&\frac{V_I}{R}\left(\frac{2^n-1}{2^{n-1}}\right)=\frac{V_I}{R}\left(\sum_{i=1}^n\frac{1}{2^{i-1}}\right)\\
+\nonumber i_\Sigma=i_s&\Rightarrow&\frac{V_I}{R}\left(\frac{15}{8}\right)=\frac{-V_{S1}}{R_S}\Rightarrow V_{S1}=\frac{-R_SV_I}{R}\left(\frac{15}{8}\right)\Rightarrow\\
+\nonumber i_i=\frac{V_{S1}}{R_i}; i_o=\frac{-V_o}{R_o}&\Rightarrow&i_i=i_o\Rightarrow\frac{V_{S1}}{R_i}=\frac{-V_o}{R_o}\Rightarrow\frac{V_{S1}R_o}{R_i}=-V_o\Rightarrow\\
+V_o&=&\frac{-\left(\frac{-15R_SV_I}{8R}\right)R_o}{R_i}
+\end{eqnarray}
+Solo resta determinar el valor de $V_I, R, R_S, R_i, R_o$ y $V_O$ para obtener el valor de las resistencias faltantes
+\subsection{A/D}
+\section{Torque}
+\appendix
+\chapter{Operaciones con matrices}
+\section{Suma de matrices}
+\section{Producto de matrices}
+\section{Determinante de matrices}
+\subsection{$2\times 2$}
+\subsection{$3\times 3$ y \'orden superior}
+\chapter{F\'ormulas f\'isicas}
+\end{document}

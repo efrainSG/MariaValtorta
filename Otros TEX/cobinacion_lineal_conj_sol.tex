@@ -1,0 +1,327 @@
+\documentclass[12pt,spanish,lettersize,twocolumn]{article}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[dvips]{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+\usepackage{vmargin}
+\setmargins{2.5cm}
+{1.5cm}
+{16.5cm}
+{23.42cm}
+{10pt}
+{1cm}
+{0pt}
+{2cm}
+\title{\color{Maroon}Sistemas Din\'amicos}
+\author{Efra\'in Serna Gracia}
+\date{\color{gray}\today}
+\begin{document}
+\maketitle
+Sea
+\begin{equation}\label{Axt+gt}
+X'(t)=Ax(t)+g(t)
+\end{equation}
+Entonces $X(t)=X_c(t)+X_p(t)$ es soluci\'on general, con $X_p(t)$ Soluci\'on particular y $X_c(t)$ Soluci\'on complementaria.\\
+Y para $X_p(t)$
+\begin{equation}
+X'(t)=Ax(t)
+\end{equation}
+\begin{equation}
+\left\{v^{(1)}e^{r_1t},v^{(2)}e^{r_2t},\dots,v^{(n)}e^{r_nt}\right\}
+\end{equation}
+Es conjunto de soluciones.\\
+Sea $\Psi(t)$ definida como la siguiente matr\'iz
+\begin{equation}
+\left[
+\begin{array}{cccc}
+v_{11}e^{r_1t}&v_{21}e^{r_2t}&\dots&v_{n1}e^{r_nt}\\
+v_{12}e^{r_1t}&v_{22}e^{r_2t}&\dots&v_{n2}e^{r_nt}\\
+\vdots&\vdots & &\vdots \\
+v_{1n}e^{r_1t}&v_{2n}e^{r_2t}&\dots&v_{nn}e^{r_nt}
+\end{array}
+\right]
+\end{equation}
+Al $det\{\Psi(t)\}$ se le denomina \emph{Wronskiano}.\\
+$\Psi(t)$ debe cumplir las siguientes 2 propiedades:
+\begin{itemize}
+\item $\Psi$ es no singular\\
+\item $\Psi$ satisface el sistema homogeneo
+\end{itemize}
+Entonces a la siguiente ecuaci\'on se le denomina \emph{Combinaci\'on lineal del conjunto soluci\'on}\\
+\begin{equation}
+x(t)=C_1v_1e^{r_1t}+C_2v_2e^{r_2t}+\dots+C_nv_ne^{r_nt}
+\end{equation}
+Sea
+\begin{equation}
+\mathbb{C}=[C_1, C_2, \dots, C_n]^T \Rightarrow \Psi(t)\mathbb{C}
+\end{equation}
+Usando \emph{Variaci\'on de par\'ametros}
+\begin{equation}
+X_p(t)=\Psi(t)\mathbb{U}(t)
+\end{equation}
+Donde
+\begin{eqnarray}
+\mathbb{U}(t)=\left[
+\begin{array}{c}
+u_1(t)\\
+u_2(t)\\
+\vdots\\
+u_n(t)
+\end{array}
+\right]\Rightarrow\\
+X'_p(t)=\Psi'(t)U(t)+\Psi(t)U'(t)\Rightarrow
+\end{eqnarray}
+Sustituyendo en (\ref{Axt+gt}) tenemos
+\begin{equation}
+\Psi'(t)U(t)+\Psi(t)U'(t)=A\Psi(t)\mathbb{U}(t)+g(t)
+\end{equation}
+Aplicando la segunda propiedad\\
+\begin{equation}
+\nonumber \Psi'(t)=A\Psi(t)
+\end{equation}
+\begin{eqnarray}
+\nonumber \Psi'(t)U(t)=A\Psi(t)U(t)\Rightarrow\\
+\nonumber \cancel{\Psi'(t)U(t)}+\Psi(t)U'(t)=\cancel{A\Psi(t)\mathbb{U}(t)}+g(t)\Rightarrow\\
+\Psi(t)U(t)=g(t)\Rightarrow\\
+\nonumber U'(t)=\Psi^{-1}(t)=g(t)\Rightarrow\\
+U(t)=\int\limits{}{t}\Psi'(\tau)g(\tau)d\tau\Rightarrow
+\end{eqnarray}
+\begin{equation}
+X_p(t)=\Psi(t)\int\limits_{}{t}\Psi^{-1}(\tau)g(\tau)d\tau
+\end{equation}
+\section{Ejercicio}
+Hallar la soluci\'on al siguiente sistema de ecuaciones diferenciales:\\
+\begin{eqnarray}
+\left.
+\begin{array}{l}
+X'_1(t)=2x_1(t)-x_2(t)+e^t\\
+X'_2(t)=3x_1(t)-2x_2(t)+t
+\end{array}
+\right\rbrace
+\end{eqnarray}
+Para encontrar la soluci\'on...\\
+\begin{equation*}
+\mathbb{X}(t)=\left[
+\begin{array}{c}
+x_1(t)\\
+x_2(t)
+\end{array}
+\right]; A=\left[
+\begin{array}{rr}
+2 & -1\\
+3 & -2
+\end{array}
+\right]; g=\left[
+\begin{array}{c}
+e^t\\
+t
+\end{array}
+\right]
+\end{equation*}
+Ahora\\
+\begin{eqnarray}
+\left|A-rI\right|=\left|\begin{array}{cc}
+2-r & -1\\
+3 & -2-r
+\end{array}
+\right|\Rightarrow\\
+\nonumber |A-rI|=(r^2-4)+3\Rightarrow\\
+\nonumber |A-rI|=r^2-1=(r-1)(r+1)\Rightarrow\\
+r_1=1;r_2=-1
+\end{eqnarray}
+Para $r_1$\\
+\begin{equation}
+X^{(1)}=\left[\begin{array}{c}
+1\\
+1
+\end{array}\right]e^t
+\end{equation}
+Para $r_2$\\
+\begin{eqnarray}
+(A-r_2I)\left(
+\begin{array}{c}
+v_1\\
+v_2
+\end{array}
+\right)=\left(
+\begin{array}{c}
+0\\
+0
+\end{array}
+\right)\Rightarrow\\
+\nonumber(A+r_1I)\left(
+\begin{array}{c}
+v_1\\
+v_2
+\end{array}
+\right)=\left(
+\begin{array}{c}
+0\\
+0
+\end{array}
+\right)\Rightarrow
+\end{eqnarray}
+\begin{equation*}
+\left(
+\begin{array}{rr}
+3 & -1\\
+3 & -1\\
+\end{array}
+\right)=
+\left(
+\begin{array}{c}
+0\\
+0\\
+\end{array}
+\right)\Rightarrow\\
+\end{equation*}
+\begin{equation*}
+\left(
+\begin{array}{rr}
+3 & -1\\
+0 & 0\\
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+v_1\\
+v_2\\
+\end{array}
+\right)=
+\left(
+\begin{array}{c}
+0\\
+0\\
+\end{array}
+\right)\Rightarrow
+\end{equation*}
+\begin{equation}
+3v_1=v_2\Rightarrow
+\mathbb{X}^{(2)}=
+\left[\begin{array}{c}
+1\\
+3
+\end{array}
+\right]e^t
+\end{equation}
+Entonces, el conjunto soluci\'on es
+\begin{equation}
+\left\{\left[
+\begin{array}{c}
+e^t\\
+e^t
+\end{array}
+\right],\left[
+\begin{array}{c}
+e^{-t}\\
+3e^{-t}
+\end{array}
+\right]
+\right\}\Rightarrow\\
+\Psi(t)=
+\left[
+\begin{array}{cc}
+e^t & e^{-t}\\
+e^t & 3e^{-t}
+\end{array}
+\right]
+\end{equation}
+Verificando el Wronskiano
+\begin{equation*}
+|\Psi(t)|=
+\left|
+\begin{array}{cc}
+e^t & e^{-t}\\
+e^t & 3e^{-t}
+\end{array}
+\right|=
+\left|
+\begin{array}{cc}
+1 & 1\\
+1 & 3
+\end{array}
+\right|=2\neq 0
+\end{equation*}
+Resolviendo para $v'_2(t)$
+\begin{equation*}
+\begin{array}{cc}
+\left.
+\begin{array}{rcrcr}
+v'_1(t)e^t&+&e^{-t}v'_2(t) & = & e^t\\
+v'_1(t)e^t&+&3e^{-t}v'_2(t) & = & t
+\end{array}
+\right\} & \begin{array}{c}
+(-1)\\
+(1)
+\end{array}
+\end{array}
+\end{equation*}
+\begin{equation}
+2e^{-t}v'_2(t)  =  e^t\Rightarrow
+\end{equation}
+\begin{eqnarray}
+v'_2(t)=\frac{1}{2}(te^t-e^{2t})\Rightarrow\\
+v_2(t)=\int\frac{1}{2}(te^t-e^{2t})dt\Rightarrow\\
+v_2(t)=\int\frac{1}{2}te^tdt-\int\frac{1}{2}e^{2t}dt\label{intV2}
+\end{eqnarray}
+Resolviendo para $v'_1(t)$
+\begin{equation*}
+\begin{array}{cc}
+\left.
+\begin{array}{rcrcr}
+v'_1(t)e^t&+&e^{-t}v'_2(t) & = & e^t\\
+v'_1(t)e^t&+&3e^{-t}v'_2(t) & = & t
+\end{array}
+\right\} & \begin{array}{c}
+(3)\\
+(-1)
+\end{array}
+\end{array}
+\end{equation*}
+\begin{eqnarray}
+\nonumber 2v'_1(t)e^t  =  3e^t-t\Rightarrow\\
+v'_1(t)= \frac{1}{2}(3e^t-t)e^{-t}\Rightarrow\\
+v_1(t)=\int\frac{3}{2}-\frac{1}{2}te^{-t}dt\label{intV1}
+\end{eqnarray}
+\begin{equation}
+X_p=\left[
+\begin{array}{cc}
+e^t & e^{-t}\\
+e^t & 3e^{-t}
+\end{array}
+\right]\left[
+\begin{array}{c}
+v_1(t)\\
+v_2(t)
+\end{array}
+\right]
+\end{equation}
+Por tanto, la soluci\'on general para $\mathbb{X}(t)$ se da por la siguiente ecuaci\'on
+\begin{equation}
+\mathbb{X}(t)=C_1\left(\begin{array}{c}e^t\\e^t\end{array}\right)+C_2\left(\begin{array}{c}e^{-t}\\3e^{-t}\end{array}\right)+\left(\begin{array}{c}x_p1(t)\\x_p2(t)\end{array}\right)
+\end{equation}
+Siendo el resultado para (\ref{intV2})
+\begin{eqnarray}
+\nonumber\int\frac{1}{2}te^tdt-\int\frac{1}{2}e^{2t}dt = \\
+\nonumber\frac{1}{2}\int te^tdt-\frac{1}{2}\int e^{2t}dt = \\
+\nonumber\frac{1}{2}\left(te^t-\int e^tdt\right)-\frac{1}{2}\left(\frac{e^t}{2}\right)=\\
+\nonumber\frac{1}{2}\left(te^t-e^t\right)-\frac{1}{2}\left(\frac{e^t}{2}\right)=\\
+\nonumber \frac{1}{2}\left(te^t-e^t-\frac{e^{2t}}{2}\right)=\\
+\frac{2te^t-2e^t-e^{2t}}{4}\Rightarrow\\
+v_2(t)=-\frac{e^t(e^{t}-2t+2)}{4}
+\end{eqnarray}
+Y siendo el resultado para (\ref{intV1})
+\begin{eqnarray}
+\nonumber\int\frac{3}{2}-\frac{1}{2}te^{-t}dt=\\
+\nonumber\frac{3}{2}t-\frac{1}{2}\int te^{-t}dt=\\
+\nonumber\frac{3}{2}t-\frac{1}{2}\left(-te^{-t}-\int -e^{-t}dt\right)=\\
+\nonumber\frac{3}{2}t-\frac{1}{2}\left(-te^{-t}+\int e^{-t}dt\right)=\\
+\nonumber\frac{3}{2}t-\frac{1}{2}\left(-te^{-t}-e^{-t}\right)=\\
+\nonumber \frac{3t}{2}+\frac{te^-t}{2}+\frac{e^{-t}}{2}\Rightarrow\\
+v_1(t)=\frac{e^{-t}(t+1)+3t}{2}
+\end{eqnarray}
+\end{document}

@@ -1,0 +1,79 @@
+\documentclass[12pt,spanish,lettersize]{article}
+
+\title{Gu\'ia para ex\'amenes de Programaci\'on en .NET}
+\author{L.C.C. Efra\'in Serna Gracia}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{Conceptos}
+\begin{description}
+\item [P.O.O.] Metodolog\'ia o forma para programar sistemas, trabajando los elementos como objetos concretos o abstractos dentro del mundo real.
+\item [Herencia] Permite transferir las caracter\'isticas de un objeto hacia sus descendientes, lo cual permite ahorrar tiempo de programaci\'on.
+\item [Polimorfismo] Es la caracter\'istica que permite a un objeto descendiente definir su propia forma de trabajo en una funci\'on dada y que previamente est\'a definida en su clase padre, por lo cual, puede realizar esta funci\'on de dos formas distintas seg\'un se indique.
+\item [Encapsulamiento]. Consiste en ocultar la forma de trabajo y definici\'on de una clase hacia el exterior, lo cual permite enfocarse en \emph{Qu\'e hace} y no en \emph{C\'omo lo hace}
+\item [Sobrecarga]. Permite definir el mismo m\'etodo con distintos argumentos y/o resultado.
+\item [Clase] Define el conjunto de caracter\'isticas y funciones que posee y puede realizar un conjunto de objetos.
+\item [Objeto] Instancia derivada de una clase y que se diferenc\'ia de otras instancias mediante los valores que tiene en sus atributos.
+\item[Interfaz]. Un contrato que define las propiedades, m\'etodos y eventos que ha de implementar una clase. Contribuye a definir \emph{herencia m\'ultiple}.
+\item [Propiedad] Define las caracter\'isticas que pueden tener un objeto.
+\item [M\'etodo]. Son las acciones o funciones que puede realizar un objeto.
+\item [Evento]. Son mecanismos que permiten al objeto responder a est\'imulos externos.
+\item[Alcance p\'ublico] Indica que la propiedad o m\'etodo pertenecientes a una clase pueden ser invocados desde cualquier lugar externo a la propia clase.
+\item[Alcance privado] Indica que la propiedad o m\'etodo pertenecientes a una clase no pueden ser invocados desde el exterior.
+\item[Alcance protegido]  Indica que la propiedad o m\'etodo pertenecientes a una clase solo pueden ser invocados desde cualquier clase descendiente a \'esta.
+\item [NET Framework]. Es un marco de trabajo que sustenta, mediante un conjunto de librer\'ias, el desarrollo estandarizado de software medisnte herramientas de Microsoft
+\end{description}
+\section{C\'odigos}
+\begin{verbatim}
+using System; // Espacio de nombres cuyas clases y m\'etodos
+              // se van a utilizar
+
+// Espacio de nombres definido para las clases que se han de
+// programar.
+namespace Guia{
+
+  // Definición de una clase pública 
+  public class ProgramacionNET{
+
+    // Definición de variables privadas
+    private int version;
+    private string titulo;
+
+    // Definición de una propiedad pública
+    public int Version{
+      get; set;
+    }
+
+    // Definición de una propiedad pública
+    public string Titulo{
+      get{return titulo + "...";}
+      set{titulo = value; }
+    }
+
+    // Método constructor
+    public ProgramacionNET(){
+      version = 0;
+      titulo = "Programacion .NET";
+    }
+
+    // Método constructor sobrecargado
+    public ProgramacionNET(int v, string t){
+      version = v;
+      titulo = t;
+    }
+
+    // Método que no devuelve resultado
+    public void cambiarTitulo(t){
+      titulo = t + "::..";
+    }
+
+    // Método que devuelve un resultado
+    public int cambiar version(int i){
+      version += i;
+      return 0;
+    }
+  }
+}
+\end{verbatim}
+\end{document}
